@@ -1,0 +1,25 @@
+.page{
+    background-color: green;
+    height: 90vh;
+    padding: 5vh;
+    color: white;
+}
+
+.form{
+    padding: 5vh;
+    color: rgb(0, 0, 0);
+}
+
+.textmuted{
+    color: white;
+    opacity: 90%;
+}
+
+.outerdiv{
+    margin: 5vh;
+    height: 90vh;
+    border-radius: 1%;
+    background-color: rgba(0, 128, 0, 0.671);
+    overflow: hidden;
+  }
+  
