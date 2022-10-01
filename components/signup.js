@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import {Form,Button,Container} from 'react-bootstrap'
 import styles from '../styles/index.module.css'
@@ -11,29 +12,24 @@ const Signup = () =>{
 
     const submitHandler=async(e)=>{
         e.preventDefault();
-
-        console.log([name,email,age])
-
-        try {
-            const response = await fetch("/api/signupsheet", {
-              method: "POST",
-              body: JSON.stringify({ email, name, age }),
-              headers: {
-                "Content-Type": "application/json",
-              }, 
-            });
-            if ((await response.status) == 201) {
-              window.location.href = "/mainpage";
-            } else {
-              throw response.json()
-            }
-          } catch (e) {
+        
+        axios.post('/api/signupsheet',{
+            email:email,
+            name:name,
+            age:age
+            })
+        .then((resp)=>{
+            const id=resp.data
+            localStorage.setItem('user',JSON.stringify({id,name,email,age}))
+            window.location.href = "/mainpage";  
+        })
+        .catch((err)=>{
             console.log(e);
             alert("Invalid signup");
             setName("");
             setAge("");
             setEmail("");
-          }
+        })
         };
       
     return(

@@ -11,14 +11,14 @@ const Mainpageleft=(props)=>{
         <>
         <Row xs={2} md={4} className="g-4">
         {props.news.map((indnews) => (
-            <Col key={indnews.id}>
+            <Col key={indnews.news_id}>
                 <Card>
                     <Card.Body>
-                    <Card.Title><h1 className={styles.h1}>{indnews.title}</h1></Card.Title>
+                    <Card.Title><h1 className={styles.h1}>{indnews.headline}</h1></Card.Title>
                     <Card.Text>
-                        {indnews.description}
+                        {indnews.info}
                     </Card.Text>
-                    <Modaldiv news={indnews} persons={props.persons} setPersons={props.setPersons}/>                            
+                    <Modaldiv news={indnews}/>                            
                 </Card.Body>
                 </Card>
             </Col>
