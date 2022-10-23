@@ -1,0 +1,19 @@
+.box{
+    position: relative;
+    height:60px;
+    width:328px;
+    background-color: rgb(18, 140, 126);
+}
+
+.fa-solid{
+    position: relative;
+    left: 70%;
+    padding:7px;
+    top:13px;
+}
+.mytext{
+    position: relative;
+    top:430px;
+    width:280px;
+}
+

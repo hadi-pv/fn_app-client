@@ -1,0 +1,52 @@
+.container{
+    position:relative;
+    height:100px;
+    width:328px;
+    border:2px;
+    background-color: rgb(18, 140, 126);
+    color: white;
+}
+.contacts1{
+    position:relative;
+    top:50px;
+    right:2px;
+    display:inline-flex;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+.contacts2{
+    position:relative;
+    top:50px;
+    left:15px;
+    display:inline-flex;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.contacts3{
+    position:relative;
+    top:50px;
+    display:inline-flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    left:12px;
+}
+.fa-magnifying-glass{
+    position: relative;
+    left:85%;
+    bottom:40%;
+    padding:5px;
+}
+.fa-ellipsis-vertical{
+   position: relative;
+   left:85%;
+    bottom:40%;
+    padding:5px;
+   
+}
+
+.title{
+    position: relative;
+    top:5px;
+    padding-left: 4px;
+}
