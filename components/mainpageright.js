@@ -1,9 +1,7 @@
-import { Container,Card ,Row,Col,Form, Modal} from "react-bootstrap";
 import { useEffect, useState } from "react";
 import styles from '../styles/mobile.module.css'
 import Modaldiv from "./modal";
-import Chatbox from './Mobile/components/Chatbox'
-import Navbar from './Mobile/components/Navbar'
+import Navbar from './Navbar'
 import axios from "axios";
 
 const Mainpageright=(props)=>{

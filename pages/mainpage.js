@@ -1,14 +1,14 @@
-import { Col,Row,Card,Popover,OverlayTrigger,Offcanvas } from 'react-bootstrap';
-// import styles from '../styles/mainpage.module.css'
+import styles from '../styles/mainpage.module.css'
 import { useEffect, useState } from 'react';
 import Mainpageright from '../components/mainpageright';
 import Mainpageleft from '../components/mainpageleft';
-import { Drawer,Button} from '@mantine/core';
+import { Drawer, Loader} from '@mantine/core';
 import news from '../data/news.json'
 import friend from '../data/friend.json';
 import colleague from '../data/colleague.json';
 import family from '../data/family.json';
 import axios from 'axios';
+
 
 
 export async function getStaticProps(){
@@ -45,12 +45,12 @@ const Mainpage = () => {
 
     return(
         <>
-        <div className='absolute top-20 left-[50vw] translate-x-[-50%] z-2 w-[1100px] bg-white shadow-2xl p-2 rounded-lg'>
-        <div className='flex justify-between'>
-            {!data? 'loading':
+        <div className='bg-white border-b-8  h-[100vh] flex justify-between px-32  items-center'>
+            <div className={ styles.layout + '   layout h-[90vh] z-2 w-[50vw] shadow-2xl  p-3 rounded-lg  '}>
+                {!data? <Loader color="green"/>:
                 <Mainpageleft news={data} />}
-                <Mainpageright/>
             </div>
+            <Mainpageright/>
         </div>
         <button onClick={handleShow} className="flex absolute top-10 bg-[#519fff] p-2 rounded-md">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
@@ -67,12 +67,9 @@ const Mainpage = () => {
                 onClose = {handleClose}
                 title = 'Instructions'>
             </Drawer>
-        <div className='relative'>
-            
-            
-            
-        </div>
+
         </>
+        
     );
 }
 
