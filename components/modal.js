@@ -25,6 +25,7 @@ export default function Modaldiv(props) {
   const handleShow2 = () => setShow2(true);
 
   const Model1=()=>{
+    console.log(props.news)
     return(
         <Modal
           show={show1}

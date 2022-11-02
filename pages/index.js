@@ -7,9 +7,9 @@ import Instruction from '../components/instruction'
 export default function Home() {
   return (
     <div >
-          <div className='w-full bg-[#00a884] -z-1 h-[180px] text-white text-4xl'> FN-APP </div>
+          <div className='w-full bg-[#00a884] -z-1 h-[50vh] text-white text-4xl'>  </div>
 
-      <div className='absolute top-12 left-[50vw] translate-x-[-50%] flex-col z-2 w-[896px] bg-white shadow-2xl p-2 rounded-lg'>
+      <div className='absolute top-12 left-[50vw] translate-x-[-50%] flex-col z-2 w-[75vw] h-[75vh] bg-white shadow-2xl p-2 rounded-lg'>
         <Instruction/>
         <Signup/>
       </div>

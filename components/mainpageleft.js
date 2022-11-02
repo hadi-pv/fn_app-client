@@ -2,6 +2,7 @@ import {useState} from 'react';
 import news from '../data/news.json'
 import { ScrollArea, Modal} from '@mantine/core';
 import ModalOpen from './ModalOpen';
+import Modaldiv from './modal'
 
 import Card from './Card';
 const Mainpageleft=(props)=>{
@@ -9,27 +10,21 @@ const Mainpageleft=(props)=>{
     return(
         
         <>
-        <ScrollArea style={{ height: 650 }} >
+        <ScrollArea style={{ height: '100%' }} >
           <div className='grid grid-cols-3 gap-5' onClick={() => setOpened(true)} >  
-        {news.map((v) => (
+        {props.news.map((v) => (
                 <Card key={v.id}>
                   <div className='bg-[#bde1b9] p-2 rounded-md '>
-                  <img className=" h-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDA0AJjyyfl9SC28cYh0H_OuChB1pUM53glA&usqp=CAU" alt=""/>
-                    <h6 className='' >{v.title}</h6>
+                  <img className=" h-auto" src={v.image_link} alt=""/>
+                  <h6 className='' >{v.headline}</h6>
+                  <Modaldiv news={v}/>
                   </div>
                   <p className='line-clamp-2'>{v.description}</p>
+                  
                 </Card>
         ))}   
         </div>
         </ScrollArea>
-        <Modal
-        opened={opened}
-        onClose={() => setOpened(false)}
-        title="Introduce yourself!"
-        centered>
-          <ModalOpen/>
-        
-      </Modal>
         </>
 
     );

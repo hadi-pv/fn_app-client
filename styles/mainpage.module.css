@@ -36,3 +36,7 @@
     background-image: url(../public/bg.jpg);
 }
 
+.mainpageOuter{
+    background: linear-gradient(to bottom,#00a884,white)!important;
+}
+

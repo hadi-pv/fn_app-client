@@ -45,7 +45,7 @@ const Mainpage = () => {
 
     return(
         <>
-        <div className='bg-white border-b-8  h-[100vh] flex justify-between px-32  items-center'>
+        <div className={`h-[100vh] flex justify-between px-32  items-center ${styles.mainpageOuter}`}>
             <div className={ styles.layout + '   layout h-[90vh] z-2 w-[50vw] shadow-2xl  p-3 rounded-lg  '}>
                 {!data? <Loader color="green"/>:
                 <Mainpageleft news={data} />}
