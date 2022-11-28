@@ -1,36 +1,4 @@
 
-/* Right Container */
-
-.rightcontainer{
-    height: 95%;
-    width: 100%;
-    background-color: white;
-    border-radius: 10px;
-    overflow: scroll;
-}
-
-
-/* Left Container */
-
-.outerdiv{
-    height: 100vh;
-    background-color: rgba(0, 128, 0, 0.671);
-    overflow: hidden;
-  }
-
-.firstcol{
-    padding: 5vh;
-    background-color: green;
-    overflow: scroll!important;
-    height: 100vh;
-    width: 60vw;
-    border-top-right-radius: 5%;
-}
-
-.h1{
-    color: black;
-    font-size: xx-large;
-}
 
 .layout {
     background-image: url(../public/bg.jpg);

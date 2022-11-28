@@ -3,8 +3,11 @@ import Image from 'next/image'
 import styles from '../styles/index.module.css'
 import Signup from '../components/signup'
 import Instruction from '../components/instruction'
+import { useState } from 'react'
 
 export default function Home() {
+  const [opened, setOpened] = useState(false);
+
   return (
     <div >
           <div className='w-full bg-[#00a884] -z-1 h-[180px] text-white text-4xl'> FN-APP </div>

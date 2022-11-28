@@ -9,8 +9,8 @@ const Mainpageleft=(props)=>{
     return(
         
         <>
-        <ScrollArea style={{ height: 650 }} >
-          <div className='grid grid-cols-3 gap-5' onClick={() => setOpened(true)} >  
+        <ScrollArea className='h-full py-0' onClick={setOpened(true)} >
+          <div className='grid grid-cols-3 gap-5'  >  
         {news.map((v) => (
                 <Card key={v.id}>
                   <div className='bg-[#bde1b9] p-2 rounded-md '>
@@ -21,11 +21,10 @@ const Mainpageleft=(props)=>{
                 </Card>
         ))}   
         </div>
-        </ScrollArea>
+        </ScrollArea> 
         <Modal
         opened={opened}
-        onClose={() => setOpened(false)}
-        title="Introduce yourself!"
+        onClose={() => setOpened(false)}  
         centered>
           <ModalOpen/>
         

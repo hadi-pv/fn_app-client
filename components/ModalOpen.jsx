@@ -17,7 +17,7 @@ const ModalOpen = () => {
         <Menu.Target>
           <img
             className="h-10 w-10"
-            src="https://www.mtctutorials.com/wp-content/uploads/2019/04/Share-button-png-by-mtc-tutorials.png"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY3Rcc6FNpeg-Nt8OeX_bwb2-HnZZip3FKWA&usqp=CAU"
             alt=""
           />
         </Menu.Target>
