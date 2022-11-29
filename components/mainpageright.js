@@ -32,6 +32,7 @@ const Mainpageright=(props)=>{
             
         })
         .catch((err)=>{
+            console.log("error")
             console.log(err)
         })
     },[])

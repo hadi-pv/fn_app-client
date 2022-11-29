@@ -25,6 +25,7 @@ export default async function handler(req, res) {
           )
       })
   }catch(e){
+    console.log("error")
       console.log(e)
       res.status(500).send({
           message:"Server Error"
