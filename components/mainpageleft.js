@@ -1,16 +1,14 @@
 import {useState} from 'react';
 import news from '../data/news.json'
 import { ScrollArea, Modal} from '@mantine/core';
-import ModalOpen from './ModalOpen';
-
+import Modals from './Modals';
 import Card from './Card';
 const Mainpageleft=(props)=>{
-  const [opened, setOpened] = useState(false);
     return(
         
         <>
         <ScrollArea style={{ height: 650 }} >
-          <div className='grid grid-cols-3 gap-5' onClick={() => setOpened(true)} >  
+          <div className='grid grid-cols-3 gap-5'>  
         {news.map((v) => (
                 <Card key={v.id}>
                   <div className='bg-[#bde1b9] p-2 rounded-md '>
@@ -18,18 +16,13 @@ const Mainpageleft=(props)=>{
                     <h6 className='' >{v.title}</h6>
                   </div>
                   <p className='line-clamp-2'>{v.description}</p>
+                  <Modals news = {v}/>
+                  {console.log(v.fake + " and " + v.contact)}
+
                 </Card>
         ))}   
         </div>
         </ScrollArea>
-        <Modal
-        opened={opened}
-        onClose={() => setOpened(false)}
-        title="Introduce yourself!"
-        centered>
-          <ModalOpen/>
-        
-      </Modal>
         </>
 
     );

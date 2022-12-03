@@ -2,67 +2,20 @@
     {
         "id":1,
         "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity. Many people lost their lives in this calamity.Many people lost their lives in this calamity."
+        "description":"Many people lost their lives in this calamity. Many people lost their lives in this calamity.Many people lost their lives in this calamity.",
+        "fake":true
     },
     {
         "id":2,
         "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
+        "description":"Many people lost their lives in this calamity.",
+        "fake":false
     },
     {
         "id":3,
         "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-    {
-        "id":4,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-    {
-        "id":5,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-    {
-        "id":6,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-
-    {
-        "id":6,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-
-    {
-        "id":6,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-
-    {
-        "id":6,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-
-    {
-        "id":6,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-
-    {
-        "id":6,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-
-    {
-        "id":6,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
+        "description":"Many people lost their lives in this calamity.",
+        "contact" : true
     }
+    
 ]
