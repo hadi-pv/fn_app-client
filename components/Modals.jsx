@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Modal, Rating } from "@mantine/core";
+import { Modal, Rating, Menu } from "@mantine/core";
 import { ClassNames } from "@emotion/react";
 import { IconSend, IconAlertTriangle } from "@tabler/icons";
+import people from "../data/people.json";
 const Modals = (props) => {
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("user")));
@@ -43,7 +44,61 @@ const Modals = (props) => {
           <Rating value={value} onChange={setValue} />
         </div>
         <div className="flex flex-col items-end">
-          <button
+          <Menu>
+            <div className="relative">
+              <Menu.Target>
+                <IconSend fill="green" />
+              </Menu.Target>
+              <Menu.Dropdown className="absolute top-8">
+                {people.family.map((p) => (
+                  <Menu.Item
+                    onClick={(e) => {
+                      if (props.news.fake) {
+                        handleShow2();
+                      }
+                      if (props.news.contact) {
+                        handleShow3();
+                      }
+                      handleClose1();
+                    }}
+                  >
+                    {p}
+                  </Menu.Item>
+                ))}
+                {people.friends.map((p) => (
+                  <Menu.Item
+                    onClick={(e) => {
+                      if (props.news.fake) {
+                        handleShow2();
+                      }
+                      if (props.news.contact) {
+                        handleShow3();
+                      }
+                      handleClose1();
+                    }}
+                  >
+                    {p}
+                  </Menu.Item>
+                ))}
+                {people.Collegues.map((p) => (
+                  <Menu.Item
+                    onClick={(e) => {
+                      if (props.news.fake) {
+                        handleShow2();
+                      }
+                      if (props.news.contact) {
+                        handleShow3();
+                      }
+                      handleClose1();
+                    }}
+                  >
+                    {p}
+                  </Menu.Item>
+                ))}
+              </Menu.Dropdown>
+            </div>
+          </Menu>
+          {/* <button
             onClick={(e) => {
               if (props.news.fake) {
                 handleShow2();
@@ -53,9 +108,7 @@ const Modals = (props) => {
               }
               handleClose1();
             }}
-          >
-            <IconSend fill="green" />
-          </button>
+          ></button> */}
         </div>
       </Modal>
     );
@@ -68,9 +121,13 @@ const Modals = (props) => {
           <h4>THIS NEWS IS FAKE DO YOU STILL WISH TO CONTINUE</h4>
           <IconAlertTriangle />
         </div>
-        <div>
-          <button>YES</button>
-          <button>NO</button>
+        <div className="flex  gap-3 ">
+          <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500">
+            YES
+          </button>
+          <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500">
+            NO
+          </button>
         </div>
         <Rating value={value} onChange={setValue} />
       </Modal>
@@ -78,11 +135,22 @@ const Modals = (props) => {
   };
   const Model3 = () => {
     return (
-      <Modal
-        title="Your contact info would be shared do you still wish to continue"
-        opened={show3}
-        onClose={handleClose3}
-      ></Modal>
+      <Modal title="Please be advised!!" opened={show3} onClose={handleClose3}>
+        <p className="">
+          YOUR CONTACT INFO WOULD BE SHARED DO YOU STILL WISH TO CONINTUE??
+        </p>
+        <div className="flex flex-col items-end">
+          <span className="flex gap-3">
+            <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500">
+              YES
+            </button>
+            <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500">
+              NO
+            </button>
+          </span>
+        </div>
+        <Rating value={value} onChange={setValue} />
+      </Modal>
     );
   };
   return (
