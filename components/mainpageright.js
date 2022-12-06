@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from '../styles/mobile.module.css'
+import { IconSearch,IconDotsVertical } from "@tabler/icons";
 import Modaldiv from "./modal";
 import Navbar from './Navbar'
 import axios from "axios";
@@ -38,7 +39,23 @@ const Mainpageright=(props)=>{
    
     return(
         <div className={styles.smartphone}>
-            <Navbar/>
+            <div className=' h-full'>
+                <div className = 'flex flex-col relative h-[100px] w-[100%]  bg-[#00a884] justify-between text-white p-2 pb-0'>
+                    <div className='flex justify-between'>
+                        <h4>Whatsapp</h4> 
+                        <div className='flex gap-2'>
+                            <IconSearch/> 
+                            <IconDotsVertical/> 
+                        </div>
+                    </div>
+                </div>
+
+                <div className={styles.content}>
+
+                </div>
+                
+                
+            </div>
         </div>
     );
 }

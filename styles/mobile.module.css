@@ -38,9 +38,9 @@
   
   /* The screen (or content) of the device */
   .smartphone .content {
-    width: 360px;
-    height: 640px;
-    background: white;
+    width: 328px;
+    height: 420px;
+    background-image: url(../public/bg.jpg);;
   }
 
 .box{

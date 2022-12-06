@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import {Form,Button,Container} from 'react-bootstrap'
 import styles from '../styles/index.module.css'
+import { ScrollArea } from '@mantine/core';
 
 const Signup = () =>{
 
@@ -33,7 +34,8 @@ const Signup = () =>{
         };
       
     return(
-        <Container>
+        <ScrollArea style={{ height: 500 }}>
+            <Container>
         <Form className={styles.form} onSubmit={submitHandler}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -58,6 +60,44 @@ const Signup = () =>{
                 Please share the correct age
                 </Form.Text>
             </Form.Group>
+
+            {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Family</Form.Label>
+                <div className='flex gap-2'>
+                <Form.Control type="name" placeholder="Family1" value={name} onChange={(e)=>setName(e.target.value)}/>
+                <Form.Control type="name" placeholder="Family2" value={name} onChange={(e)=>setName(e.target.value)}/>
+                <Form.Control type="name" placeholder="Family3" value={name} onChange={(e)=>setName(e.target.value)}/>
+                </div>
+                <Form.Text className={styles.textmuted}>
+                Give 3 Family members you frequently chat with
+                </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Friends</Form.Label>
+                <div className='flex gap-2'>
+                <Form.Control type="name" placeholder="Friend1" value={name} onChange={(e)=>setName(e.target.value)}/>
+                <Form.Control type="name" placeholder="Friend2" value={name} onChange={(e)=>setName(e.target.value)}/>
+                <Form.Control type="name" placeholder="Friend3" value={name} onChange={(e)=>setName(e.target.value)}/>
+                </div>
+                <Form.Text className={styles.textmuted}>
+                Give 3 Friends you frequently chat with
+                </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Colleagues</Form.Label>
+                <div className='flex gap-2'>
+                <Form.Control type="name" placeholder="Colleague1" value={name} onChange={(e)=>setName(e.target.value)}/>
+                <Form.Control type="name" placeholder="Colleague2" value={name} onChange={(e)=>setName(e.target.value)}/>
+                <Form.Control type="name" placeholder="Colleague3" value={name} onChange={(e)=>setName(e.target.value)}/>
+                </div>
+                <Form.Text className={styles.textmuted}>
+                Give 3 Colleagues you frequently chat with
+                </Form.Text>        
+            </Form.Group> */}
+
+            
 
             {/* <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Mobile Number</Form.Label>
@@ -86,6 +126,7 @@ const Signup = () =>{
             }
         </Form>
         </Container>
+        </ScrollArea>
     );
 }
 

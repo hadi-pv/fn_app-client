@@ -121,13 +121,15 @@ const Modals = (props) => {
           <h4>THIS NEWS IS FAKE DO YOU STILL WISH TO CONTINUE</h4>
           <IconAlertTriangle />
         </div>
-        <div className="flex  gap-3 ">
-          <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500">
-            YES
-          </button>
-          <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500">
-            NO
-          </button>
+        <div className="flex flex-col items-end">
+          <span className="flex gap-3">
+            <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500">
+              YES
+            </button>
+            <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500">
+              NO
+            </button>
+          </span>
         </div>
         <Rating value={value} onChange={setValue} />
       </Modal>
