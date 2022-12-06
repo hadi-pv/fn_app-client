@@ -3,6 +3,7 @@ import { Button,Modal,Row,Col,Container } from 'react-bootstrap';
 import Router from 'next/router'
 import axios from 'axios';
 import Image from 'react-bootstrap';
+import { NEWS_OPENED, NEWS_CLOSED, NEWS_SENT } from '../constants/taskTypes';
 
 
 export default function Modaldiv(props) {
@@ -17,8 +18,31 @@ export default function Modaldiv(props) {
   const [fake,setFake]=useState(true)
 
   const [show1, setShow1] = useState(false);
-  const handleClose1 = () => setShow1(false);
-  const handleShow1 = () => setShow1(true);
+
+  const handleClose1 = () => {
+    setShow1(false)
+
+    axios.post('/api/addlog',{
+      user_id:user.id,
+      news_id:props.news.news_id,
+      task:NEWS_CLOSED,
+      startTime: localStorage.getItem('start_time'),
+      currTime: Date.now()
+    })
+  }
+
+  const handleShow1 = () => {
+    setShow1(true)
+    localStorage.setItem('start_time', Date.now())
+
+    axios.post('/api/addlog',{
+      user_id:user.id,
+      news_id:props.news.news_id,
+      task:NEWS_OPENED,
+      startTime: localStorage.getItem('start_time'),
+      currTime: localStorage.getItem('start_time')
+    })
+  }
 
   const [show2, setShow2] = useState(false);
   const handleClose2 = () => setShow2(false);
@@ -157,7 +181,16 @@ export default function Modaldiv(props) {
       fk_news_id:props.news.news_id,
       send_to:person,
       send_by:user.id
-    })
+    }).then(()=>{
+      axios.post('/api/addlog', {
+        user_id: user.id,
+        news_id: props.news.news_id,
+        task: NEWS_SENT,
+        send_to: person,
+        startTime: localStorage.getItem('start_time'),
+        currTime: Date.now()
+      })
+    });
 
   }
 
