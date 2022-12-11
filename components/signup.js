@@ -61,7 +61,7 @@ const Signup = () =>{
                 </Form.Text>
             </Form.Group>
 
-            {/* <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Family</Form.Label>
                 <div className='flex gap-2'>
                 <Form.Control type="name" placeholder="Family1" value={name} onChange={(e)=>setName(e.target.value)}/>
@@ -95,7 +95,7 @@ const Signup = () =>{
                 <Form.Text className={styles.textmuted}>
                 Give 3 Colleagues you frequently chat with
                 </Form.Text>        
-            </Form.Group> */}
+            </Form.Group>
 
             
 
