@@ -9,6 +9,10 @@ const Signup = () =>{
     const [name,setName]=useState('')
     const [email,setEmail]=useState('')
     const [age,setAge]=useState('')
+    const [family,setFamily]=useState('')
+    const [friend,setFriend]=useState('')
+    const [colleague,setColleague]=useState('')
+    
     const [ischecked,setIschecked]=useState(false)
 
     const submitHandler=async(e)=>{
@@ -22,6 +26,7 @@ const Signup = () =>{
         .then((resp)=>{
             const id=resp.data
             localStorage.setItem('user',JSON.stringify({id,name,email,age}))
+            localStorage.setItem('people',JSON.stringify({family,friend,colleague}))
             window.location.href = "/mainpage";  
         })
         .catch((err)=>{
@@ -64,36 +69,30 @@ const Signup = () =>{
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Family</Form.Label>
                 <div className='flex gap-2'>
-                <Form.Control type="name" placeholder="Family1" value={name} onChange={(e)=>setName(e.target.value)}/>
-                <Form.Control type="name" placeholder="Family2" value={name} onChange={(e)=>setName(e.target.value)}/>
-                <Form.Control type="name" placeholder="Family3" value={name} onChange={(e)=>setName(e.target.value)}/>
+                <Form.Control type="name" placeholder="Family" value={family} onChange={(e)=>setFamily(e.target.value)}/>
                 </div>
                 <Form.Text className={styles.textmuted}>
-                Give 3 Family members you frequently chat with
+                A Family member you frequently chat with
                 </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Friends</Form.Label>
+                <Form.Label>Friend</Form.Label>
                 <div className='flex gap-2'>
-                <Form.Control type="name" placeholder="Friend1" value={name} onChange={(e)=>setName(e.target.value)}/>
-                <Form.Control type="name" placeholder="Friend2" value={name} onChange={(e)=>setName(e.target.value)}/>
-                <Form.Control type="name" placeholder="Friend3" value={name} onChange={(e)=>setName(e.target.value)}/>
+                <Form.Control type="name" placeholder="Friend" value={friend} onChange={(e)=>setFriend(e.target.value)}/>
                 </div>
                 <Form.Text className={styles.textmuted}>
-                Give 3 Friends you frequently chat with
+                 A Friends you frequently chat with
                 </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Colleagues</Form.Label>
+                <Form.Label>Colleague</Form.Label>
                 <div className='flex gap-2'>
-                <Form.Control type="name" placeholder="Colleague1" value={name} onChange={(e)=>setName(e.target.value)}/>
-                <Form.Control type="name" placeholder="Colleague2" value={name} onChange={(e)=>setName(e.target.value)}/>
-                <Form.Control type="name" placeholder="Colleague3" value={name} onChange={(e)=>setName(e.target.value)}/>
+                <Form.Control type="name" placeholder="Colleague" value={colleague} onChange={(e)=>setColleague(e.target.value)}/>
                 </div>
                 <Form.Text className={styles.textmuted}>
-                Give 3 Colleagues you frequently chat with
+                A Colleagues yo frequently chat with
                 </Form.Text>        
             </Form.Group>
 

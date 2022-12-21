@@ -65,6 +65,10 @@ const Mainpage = () => {
                 onClose = {handleClose}
                 title = 'Instructions'
                 size ="sm">
+                    <div>
+                        <h1>{user.name}</h1>
+                        <h3>{user.age}</h3>                        
+                    </div>
         </Drawer>
 
         </>

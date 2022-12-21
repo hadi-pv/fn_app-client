@@ -50,11 +50,9 @@ const Mainpageright=(props)=>{
                     </div>
                 </div>
 
-                <div className={styles.content}>
-
+                <div className={ styles.content + ' flex flex-col justify-end items-end'}>
+                    
                 </div>
-                
-                
             </div>
         </div>
     );
