@@ -17,6 +17,8 @@ const Mainpageright=(props)=>{
 
     useEffect(()=>{
         const user=JSON.parse(localStorage.getItem('user'))
+        const news = (localStorage.getItem("Pattoth"))
+        console.log(news)
         axios.post('/api/getmsg',{
             send_by:user.id
         })

@@ -39,11 +39,12 @@ const Modals = (props) => {
       localStorage.setItem(sentTo,news)
     }else{
       const array =  (localStorage.getItem(sentTo))
-      console.log(typeof(array[0]))
+      
+      localStorage.setItem(sentTo,JSON.stringify(array))
     }
       
       // array.push(news)
-      // localStorage.setItem(sentTo,JSON.stringify(array))
+      // 
   }
 
   const Model1 = () => {
