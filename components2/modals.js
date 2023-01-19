@@ -5,44 +5,29 @@ import { IconSend, IconAlertTriangle,IconBrandTelegram } from "@tabler/icons";
 
 const Modals = (props) => {
   useEffect(() => {
+
     setUser(JSON.parse(localStorage.getItem("user")));
+    setStime(new Date())
     
   }, []);
 
   const [user, setUser] = useState("");
-  const [sentTo,setSentTo] = useState("")
-  const [news,setNews] = useState(undefined)
+  const [value,setValue]=useState(0);
+  const [stime,setStime]=useState('');
 
   const [show1, setShow1] = useState(false);
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
 
   const [show2, setShow2] = useState(false);
-  const handleClose2 = () => {
-    setShow2(false)
-    setSentTo("")};
+  const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
 
   const [show3, setShow3] = useState(false);
-  const handleClose3 = () => {
-    setShow3(false)
-    setSentTo("")
-  };
+  const handleClose3 = () => setShow3(false);
   const handleShow3 = () => setShow3(true);
-  const [value, setValue] = useState(0);
 
-  const sent = () =>{
-    if (!localStorage.getItem(sentTo)){
-      localStorage.setItem(sentTo,news)
-    }else{
-      const array =  (localStorage.getItem(sentTo))
-      
-      localStorage.setItem(sentTo,JSON.stringify(array))
-    }
-      
-      // array.push(news)
-      // 
-  }
+
 
   const Model1 = () => {
     return (
@@ -69,19 +54,14 @@ const Modals = (props) => {
                 <button className="flex bg-green-300 p-2 rounded-md hover:bg-green-400">Share<IconSend fill="white" /></button>
               </Menu.Target>
               <Menu.Dropdown className="absolute top-8">
-                {['family','friend','colleague'].map((v) =>(
-                  <Menu.Item
-                    // onClick={(e) => {
-                    //   if (props.news.fake) {
-                    //     handleShow2();
-                    //     family.append(props.news.id)
-                    //     setNews(props.news)
-                    //   }
-                    //   if (props.news.contact) {
-                    //     handleShow3();
-                    //   }
-                    //   handleClose1();
-                    // }}
+                {['family','friend','colleague'].map((v,id) =>(
+                  <Menu.Item key={id}
+                    onClick={(e) => {
+                      if (props.news.fake) {
+                        handleShow2();
+                      }
+                      handleClose1();
+                    }}
                   >
                     {v}
                     
@@ -90,17 +70,22 @@ const Modals = (props) => {
               </Menu.Dropdown>
             </div>
           </Menu>
-          {/* <button
+          <button
             onClick={(e) => {
               if (props.news.fake) {
                 handleShow2();
               }
-              if (props.news.contact) {
-                handleShow3();
-              }
               handleClose1();
             }}
-          ></button> */}
+          ></button>
+            <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500" onClick={()=>{
+                const t=new Date()
+                console.log('First close')
+                console.log((t.getTime()-stime.getTime())/1000)
+                handleClose1()
+            }}>
+              Close
+            </button>
         </div>
       </Modal>
     );
@@ -119,10 +104,18 @@ const Modals = (props) => {
         </div>
         <div className="flex flex-col items-end">
           <span className="flex gap-3">
-            <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500" onClick={sent} >
+            <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500" onClick={()=>{
+                handleShow3()
+                handleClose2()
+                }}>
               YES
             </button>
-            <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500" onClick={handleClose2}>
+            <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500" onClick={()=>{
+                const t=new Date()
+                console.log('Second close')
+                console.log((t.getTime()-stime.getTime())/1000)
+                handleClose2()
+            }}>
               NO
             </button>
           </span>
@@ -134,16 +127,20 @@ const Modals = (props) => {
     return (
       <Modal title="Please be advised!!" opened={show3} onClose={handleClose3} centered ="true">
         <h5>YOUR CONTACT INFO WOULD BE SHARED DO YOU STILL WISH TO CONINTUE??</h5>
-        <div className="text-center">
-          <p>How do you rate this alert?</p>
-        <Rating value={value} onChange={setValue} size="xl" className="mx-auto" />
-        </div>
         <div className="flex flex-col items-end">
           <span className="flex gap-3">
-            <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500">
+            <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500" onClick={()=>{
+
+                handleClose3()
+            }}>
               YES
             </button>
-            <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500" onClick={handleClose3}>
+            <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500" onClick={()=>{
+                const t=new Date()
+                console.log('Third close')
+                console.log((t.getTime()-stime.getTime())/1000)
+                handleClose3()
+            }}>
               NO
             </button>
           </span>
@@ -155,7 +152,10 @@ const Modals = (props) => {
   return (
     <>
       <div className="flex justify-end">
-      <button onClick={handleShow1} className= "mx-2"><IconBrandTelegram/></button>
+      <button onClick={()=>{
+        handleShow1()
+        setStime(new Date())
+      }} className= "mx-2">Share : <IconBrandTelegram/></button>
       </div>
       <Model1 />
       <Model2 />

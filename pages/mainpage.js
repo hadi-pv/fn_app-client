@@ -78,12 +78,16 @@ const Mainpage = () => {
          <Drawer
                 opened ={show}
                 onClose = {handleClose}
-                title = 'Instructions'
+                title = 'Build by tensors'
                 size ="sm">
                     <div>
-                        <h1>{user.name}</h1>
-                        <h5>{user.id}</h5>
-                        <h3>{user.age}</h3>                        
+                        <h3>Instructions</h3>
+                        <br/>
+                        {Object.keys(user).map((k,id)=>{
+                            return(
+                                <h5 key={id}>{k} : {user[k]}</h5>
+                            )
+                        })}                      
                     </div>
         </Drawer>
 

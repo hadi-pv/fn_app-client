@@ -17,6 +17,7 @@ const Signup = () =>{
 
     const submitHandler=async(e)=>{
         e.preventDefault();
+        let ratingtype = Math.floor(Math.random() * 4);
         
         axios.post('/api/signupsheet',{
             email:email,
@@ -28,8 +29,8 @@ const Signup = () =>{
             })
         .then((resp)=>{
             const id=resp.data
-            localStorage.setItem('user',JSON.stringify({id,name,email,age,family,friend,colleague}))
-            // localStorage.setItem('people',JSON.stringify({family,friend,colleague}))
+            const starttime=new Date().getTime()
+            localStorage.setItem('user',JSON.stringify({id,name,email,age,ratingtype,starttime,family,friend,colleague}))
             window.location.href = "/mainpage";  
         })
         .catch((err)=>{
@@ -99,20 +100,6 @@ const Signup = () =>{
                 </Form.Text>        
             </Form.Group>
 
-            
-
-            {/* <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Mobile Number</Form.Label>
-                <Form.Control type="mobile" placeholder="Type your Mobile Number" />
-                <Form.Text className={styles.textmuted}>
-                We'll never share your number with anyone else.
-                </Form.Text>
-            </Form.Group> */}
-
-            {/* <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-            </Form.Group> */}
             
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="I read the instructions and agree to all the terms and conditions" onChange={(e) => setIschecked(e.currentTarget.checked)}/>
