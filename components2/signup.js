@@ -21,12 +21,15 @@ const Signup = () =>{
         axios.post('/api/signupsheet',{
             email:email,
             name:name,
-            age:age
+            age:age,
+            family:family,
+            friend:friend,
+            colleague:colleague
             })
         .then((resp)=>{
             const id=resp.data
-            localStorage.setItem('user',JSON.stringify({id,name,email,age}))
-            localStorage.setItem('people',JSON.stringify({family,friend,colleague}))
+            localStorage.setItem('user',JSON.stringify({id,name,email,age,family,friend,colleague}))
+            // localStorage.setItem('people',JSON.stringify({family,friend,colleague}))
             window.location.href = "/mainpage";  
         })
         .catch((err)=>{

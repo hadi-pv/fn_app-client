@@ -1,19 +1,16 @@
 import styles from '../styles/mainpage.module.css'
 import { useEffect, useState } from 'react';
-import Mainpageright from '../components/mainpageright';
-import Mainpageleft from '../components/mainpageleft';
 import { Drawer, Loader} from '@mantine/core';
-import news from '../data/news.json'
-import friend from '../data/friend.json';
-import colleague from '../data/colleague.json';
-import family from '../data/family.json';
 import axios from 'axios';
 
+import Mainpageright from '../components/mainpageright';
+import Mainpageleft from '../components2/mainpageleft';
+import news from '../data/news.json'
 
 
 export async function getStaticProps(){
     return {
-        props: { news,family,friend,colleague
+        props: { news
         },
       };
 }
@@ -27,18 +24,36 @@ const Mainpage = () => {
     const handleShow = () => setShow(true);
 
     const [user,setUser]=useState('')
-    const [data,setData]=useState('')
+    const [data,setData]=useState(news)
+    const [family,setFamily]=useState([])
+    const [friend,setFriend]=useState([])
+    const [colleague,setColleague]=useState([])
 
 
     useEffect(()=>{
         setUser(JSON.parse(localStorage.getItem('user')))
-        axios.get('/api/getnews')
-        .then((resp)=>{
-            setData(resp.data.message)
-            console.log(resp.data.message)
+        axios.post('/api/getmsg',{
+            send_by:user.id
         })
-        .catch((e)=>{
-            console.log(e)
+        .then((resp)=>{
+            // if(resp.data){
+            //     setFamily(resp.data.message.filter((data)=>data.send_to=='family'))
+            //     setColleague(resp.data.message.filter((data)=>data.send_to=='colleague'))
+            //     setFriend(resp.data.message.filter((data)=>data.send_to=='friend')) 
+            //     setFlag(false)
+
+            // }
+            if (resp.data){
+                resp.data.message.map((data)=>{
+                    if(data.send_to=='family') setFamily([...family,data.fk_news_id])
+                    if(data.send_to=='friend') setFriend([...friend,data.fk_news_id])
+                    if(data.send_to=='colleague') setColleague([...colleague,data.fk_news_id])
+                })
+            }
+            
+        })
+        .catch((err)=>{
+            console.log(err)
         })
     },[])
 
@@ -55,9 +70,9 @@ const Mainpage = () => {
             <div className='flex relative top-10 justify-between px-20'>
                 <div className={ styles.layout + '   layout h-[85vh] z-2 w-[50vw] shadow-2xl  p-3 rounded-lg  '}>
                     {!data? <Loader color="green"/>:
-                    <Mainpageleft news={data} />}
+                    <Mainpageleft news={data} family={family} friend={friend} colleague={colleague}/>}
                 </div>
-                <Mainpageright/>
+                {/* <Mainpageright/> */}
             </div>
         </div>
          <Drawer
@@ -67,6 +82,7 @@ const Mainpage = () => {
                 size ="sm">
                     <div>
                         <h1>{user.name}</h1>
+                        <h5>{user.id}</h5>
                         <h3>{user.age}</h3>                        
                     </div>
         </Drawer>

@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/index.module.css'
-import Signup from '../components/signup'
-import Instruction from '../components/instruction'
+import Signup from '../components2/signup'
+import Instruction from '../components2/instruction'
 
 export default function Home() {
   return (

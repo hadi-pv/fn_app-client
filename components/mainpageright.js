@@ -53,7 +53,7 @@ const Mainpageright=(props)=>{
                 </div>
 
                 <div className={ styles.content + ' flex flex-col justify-end items-end'}>
-                    
+                    dasd
                 </div>
             </div>
         </div>

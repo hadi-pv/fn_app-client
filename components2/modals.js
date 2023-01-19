@@ -62,10 +62,6 @@ const Modals = (props) => {
           />
           {/* <p className="m-1">{props.news.description}</p> */}
         </div>
-        <div className="flex flex-col mx-1 items-center">
-          <p className="m-0">How do you rate this news?</p>
-          <Rating value={value} onChange={setValue}  size="xl"/>
-        </div>
         <div className="flex flex-col items-end">
           <Menu>
             <div className="relative">
@@ -73,21 +69,21 @@ const Modals = (props) => {
                 <button className="flex bg-green-300 p-2 rounded-md hover:bg-green-400">Share<IconSend fill="white" /></button>
               </Menu.Target>
               <Menu.Dropdown className="absolute top-8">
-                {Object.keys(news).map((v) =>(
+                {['family','friend','colleague'].map((v) =>(
                   <Menu.Item
-                    onClick={(e) => {
-                      if (props.news.fake) {
-                        handleShow2();
-                        setSentTo(news[v])
-                        setNews(props.news)
-                      }
-                      if (props.news.contact) {
-                        handleShow3();
-                      }
-                      handleClose1();
-                    }}
+                    // onClick={(e) => {
+                    //   if (props.news.fake) {
+                    //     handleShow2();
+                    //     family.append(props.news.id)
+                    //     setNews(props.news)
+                    //   }
+                    //   if (props.news.contact) {
+                    //     handleShow3();
+                    //   }
+                    //   handleClose1();
+                    // }}
                   >
-                    {news[v]}
+                    {v}
                     
                   </Menu.Item>
                 ))}

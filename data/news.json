@@ -3,22 +3,19 @@
         "id":1,
         "title":"Natural calamity",
         "image" : "/F1.jpg",
-        "description":"Many people lost their lives in this calamity. Many people lost their lives in this calamity.Many people lost their lives in this calamity.",
         "fake":true
     },
     {
         "id":2,
         "title":"Natural calamity",
         "image" : "/F2.jpg",
-        "description":"Many people lost their lives in this calamity.",
         "fake":false
     },
     {
         "id":3,
         "title":"Natural calamity",
         "image" : "/F3.jpg",
-        "description":"Many people lost their lives in this calamity.",
-        "contact" : true
+        "fake" : true
     }
     
 ]

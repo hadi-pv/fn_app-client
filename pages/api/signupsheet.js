@@ -3,12 +3,12 @@ import dbClient from './postgres/postgres'
 import { v4 as uuidv4 } from 'uuid';
 
 export default async function signuphandler(req,res){
-  const {name,email,age}=req.body;
+  const {name,email,age,family,friend,colleague}=req.body;
 
   const user_id=uuidv4();
 
-  const queryText="insert into users(user_id,name,email,age) values($1,$2,$3,$4);"
-  const queryValues=[user_id,name,email,age]
+  const queryText="insert into users(user_id,name,email,age,family,friend,colleague) values($1,$2,$3,$4,$5,$6,$7);"
+  const queryValues=[user_id,name,email,age,family,friend,colleague]
 
   var client
   try{
