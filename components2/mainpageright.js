@@ -45,9 +45,11 @@ const Mainpageright = ({persons, loading}) => {
                     dasd
                 </div>*/}
 
-                <div className={`${styles.content} flex flex-col justify-end items-end`} style={{'overflowY':'scroll'}}>
-                {loading? <center><Loader color="green"/></center>:
-                    <>
+                {loading? 
+                    <div className={`${styles.content} flex flex-col justify-center items-center`}>
+                        <center><Loader color="green"/></center>
+                    </div>:
+                    <div className={`${styles.content} flex flex-col justify-end items-end`} style={{'overflowY':'scroll'}}>
                     {
                         !selectedTab? <h1 style={{'marginBottom':'300px'}}><center>Select a Person</center></h1>:
                         persons[selectedTab].map((obj)=>{
@@ -67,11 +69,10 @@ const Mainpageright = ({persons, loading}) => {
                             
                         })
                     }
-                </> 
+                </div> 
                 }
             </div> 
             </div>
-        </div>
     );
 }
 
