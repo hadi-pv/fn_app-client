@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Drawer, Loader} from '@mantine/core';
 import axios from 'axios';
 
-import Mainpageright from '../components/mainpageright';
+import Mainpageright from '../components2/mainpageright';
 import Mainpageleft from '../components2/mainpageleft';
 import news from '../data/news.json'
 
@@ -28,6 +28,7 @@ const Mainpage = () => {
     const [family,setFamily]=useState([])
     const [friend,setFriend]=useState([])
     const [colleague,setColleague]=useState([])
+    const [loading,setLoading]=useState(true)
 
 
     useEffect(()=>{
@@ -49,6 +50,7 @@ const Mainpage = () => {
                     if(data.send_to=='friend') setFriend([...friend,data.fk_news_id])
                     if(data.send_to=='colleague') setColleague([...colleague,data.fk_news_id])
                 })
+                setLoading(false)
             }
             
         })
@@ -72,7 +74,7 @@ const Mainpage = () => {
                     {!data? <Loader color="green"/>:
                     <Mainpageleft news={data} family={family} friend={friend} colleague={colleague}/>}
                 </div>
-                {/* <Mainpageright/> */}
+                    <Mainpageright persons={{family, friend, colleague}} loading={loading}/>
             </div>
         </div>
          <Drawer
