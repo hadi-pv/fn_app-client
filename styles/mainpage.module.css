@@ -31,3 +31,11 @@
     color: black;
     font-size: xx-large;
 }
+
+.layout {
+    background-image: url(../public/bg.jpg);
+}
+
+.mainpageOuter{
+    background: linear-gradient(to bottom,green,white);
+}

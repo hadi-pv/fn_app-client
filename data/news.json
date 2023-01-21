@@ -2,31 +2,20 @@
     {
         "id":1,
         "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
+        "image" : "/F1.jpg",
+        "fake":true
     },
     {
         "id":2,
         "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
+        "image" : "/F2.jpg",
+        "fake":false
     },
     {
         "id":3,
         "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-    {
-        "id":4,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-    {
-        "id":5,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
-    },
-    {
-        "id":6,
-        "title":"Natural calamity",
-        "description":"Many people lost their lives in this calamity."
+        "image" : "/F3.jpg",
+        "fake" : true
     }
+    
 ]

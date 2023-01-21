@@ -4,5 +4,8 @@ CREATE TABLE public.users
     name text NOT NULL,
     email text,
     age int,
+    family text,
+    friend text,
+    colleague text,
     PRIMARY KEY(user_id)
 );
