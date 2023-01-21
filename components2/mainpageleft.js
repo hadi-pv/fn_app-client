@@ -24,7 +24,8 @@ const Mainpageleft=(props)=>{
                         <br/>
                         <h6 className='' >{v.title}</h6>
                       </div>
-                      <Modals news={v} family={props.family} friend={props.friend} colleague={props.colleague}/>
+                      <Modals news={v} family={props.family} friend={props.friend} colleague={props.colleague} 
+                      setFamily={props.setFamily} setFriend={props.setFriend} setColleague={props.setColleague}/>
 
                     </Card>
             ))}   

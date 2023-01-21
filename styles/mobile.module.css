@@ -1,7 +1,7 @@
 .smartphone {
     position: relative;
-    width: 360px;
-    height: 640px;
+    width: 450px;
+    height: 750px;
     border: 16px black solid;
     border-top-width: 60px;
     border-bottom-width: 60px;
@@ -38,8 +38,8 @@
   
   /* The screen (or content) of the device */
   .smartphone .content {
-    width: 328px;
-    height: 420px;
+    width: 410px;
+    height: 530px;
     background-image: url(../public/bg.jpg);;
   }
 

@@ -26,6 +26,7 @@ const Mainpageright = ({persons, loading}) => {
                                 <button key={id} id={pers} className='w-full m-2' onClick={()=>{
 
                                     setSelectedTab(pers)
+                                    console.log(persons[selectedTab])
                                     document.getElementById(pers).className="border-b-[3px] border-white w-full m-2"
 
                                     for(const item of ['family','friend','colleague']){
@@ -46,7 +47,7 @@ const Mainpageright = ({persons, loading}) => {
                 </div>*/}
 
                 <div className={`${styles.content} flex flex-col justify-end items-end`} style={{'overflowY':'scroll'}}>
-                {loading? <center><Loader color="green"/></center>:
+                {!loading? <center><Loader color="green"/></center>:
                     <>
                     {
                         !selectedTab? <h1 style={{'marginBottom':'300px'}}><center>Select a Person</center></h1>:

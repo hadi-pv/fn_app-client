@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Modal, Rating, Menu } from "@mantine/core";
 import { ClassNames } from "@emotion/react";
 import { IconSend, IconAlertTriangle,IconBrandTelegram } from "@tabler/icons";
+import axios from "axios";
 
 const Modals = (props) => {
   useEffect(() => {
@@ -14,6 +15,7 @@ const Modals = (props) => {
   const [user, setUser] = useState("");
   const [value,setValue]=useState(0);
   const [stime,setStime]=useState('');
+  const [sendto,setSendto]=useState('')
 
   const [show1, setShow1] = useState(false);
   const handleClose1 = () => setShow1(false);
@@ -58,6 +60,7 @@ const Modals = (props) => {
                   <Menu.Item key={id}
                     onClick={(e) => {
                       if (props.news.fake) {
+                        setSendto(v)
                         handleShow2();
                       }
                       handleClose1();
@@ -130,7 +133,21 @@ const Modals = (props) => {
         <div className="flex flex-col items-end">
           <span className="flex gap-3">
             <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500" onClick={()=>{
-
+                if(sendto=='family'){
+                  props.setFamily([...props.family,props.news.id])
+                }
+                if(sendto=='friend'){
+                  props.setFriend([...props.friend,props.news.id])
+                }
+                if(sendto=='colleague'){
+                  props.setColleague([...props.colleague,props.news.id])
+                }
+                axios.post('/api/sendmsg',{
+                  fk_news_id:props.news.id,
+                  send_to:sendto,
+                  send_by:user.id,
+                  time_taken:100
+                })
                 handleClose3()
             }}>
               YES

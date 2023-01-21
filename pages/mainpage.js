@@ -70,11 +70,17 @@ const Mainpage = () => {
                 </svg>
             </button>
             <div className='flex relative top-10 justify-between px-20'>
-                <div className={ styles.layout + '   layout h-[85vh] z-2 w-[50vw] shadow-2xl  p-3 rounded-lg  '}>
+                <div className={ styles.layout + '   layout h-[85vh] z-2 w-[50vw] shadow-2xl  p-3 rounded-lg'}>
                     {!data? <Loader color="green"/>:
-                    <Mainpageleft news={data} family={family} friend={friend} colleague={colleague}/>}
+                    <Mainpageleft news={data} family={family} friend={friend} colleague={colleague}
+                    setFamily={setFamily} setFriend={setFriend} setColleague={setColleague}/>}
                 </div>
+                <div  className='layout h-[85vh] z-2 w-[50vw] p-3'>
+                    <center>
                     <Mainpageright persons={{family, friend, colleague}} loading={loading}/>
+
+                    </center>
+                </div>
             </div>
         </div>
          <Drawer
