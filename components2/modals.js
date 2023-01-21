@@ -29,6 +29,24 @@ const Modals = (props) => {
   const handleClose3 = () => setShow3(false);
   const handleShow3 = () => setShow3(true);
 
+  const send_message=()=>{
+    if(sendto=='family'){
+      props.setFamily([...props.family,props.news.id])
+    }
+    if(sendto=='friend'){
+      props.setFriend([...props.friend,props.news.id])
+    }
+    if(sendto=='colleague'){
+      props.setColleague([...props.colleague,props.news.id])
+    }
+    const t=Math.floor((new Date().getTime()-stime.getTime())/1000)
+    axios.post('/api/sendmsg',{
+      fk_news_id:props.news.id,
+      send_to:sendto,
+      send_by:user.id,
+      time_taken:t
+    })
+  }
 
 
   const Model1 = () => {
@@ -59,9 +77,11 @@ const Modals = (props) => {
                 {['family','friend','colleague'].map((v,id) =>(
                   <Menu.Item key={id}
                     onClick={(e) => {
+                      setSendto(v)
                       if (props.news.fake) {
-                        setSendto(v)
                         handleShow2();
+                      }else{
+                        send_message()
                       }
                       handleClose1();
                     }}
@@ -77,8 +97,12 @@ const Modals = (props) => {
             onClick={(e) => {
               if (props.news.fake) {
                 handleShow2();
+                handleClose1();
               }
-              handleClose1();
+              else{
+                send_message()
+                handleClose1();
+              }
             }}
           ></button>
             <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500" onClick={()=>{
@@ -133,21 +157,7 @@ const Modals = (props) => {
         <div className="flex flex-col items-end">
           <span className="flex gap-3">
             <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500" onClick={()=>{
-                if(sendto=='family'){
-                  props.setFamily([...props.family,props.news.id])
-                }
-                if(sendto=='friend'){
-                  props.setFriend([...props.friend,props.news.id])
-                }
-                if(sendto=='colleague'){
-                  props.setColleague([...props.colleague,props.news.id])
-                }
-                axios.post('/api/sendmsg',{
-                  fk_news_id:props.news.id,
-                  send_to:sendto,
-                  send_by:user.id,
-                  time_taken:100
-                })
+                send_message()
                 handleClose3()
             }}>
               YES
