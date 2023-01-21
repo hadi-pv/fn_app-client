@@ -12,10 +12,12 @@ const Signup = () =>{
     const [family,setFamily]=useState('')
     const [friend,setFriend]=useState('')
     const [colleague,setColleague]=useState('')
+    const [submittext,setSubmittext]=useState('Submit')
     
     const [ischecked,setIschecked]=useState(false)
 
     const submitHandler=async(e)=>{
+        setSubmittext('Loading...........\nPlease Wait..........')
         e.preventDefault();
         let ratingtype = Math.floor(Math.random() * 4);
         
@@ -40,6 +42,7 @@ const Signup = () =>{
             setAge("");
             setEmail("");
         })
+        setSubmittext('Submit')
         };
       
     return(
@@ -105,12 +108,12 @@ const Signup = () =>{
                 <Form.Check type="checkbox" label="I read the instructions and agree to all the terms and conditions" onChange={(e) => setIschecked(e.currentTarget.checked)}/>
             </Form.Group>
             {ischecked?
-                <Button variant="primary" type="submit" >
-                    Submit
+                <Button variant="primary" type="submit" onClick={()=>setSubmittext('Loading...........\nPlease Wait..........')}>
+                    {submittext}
                 </Button>
                 :
                 <Button variant="primary" type="submit" disabled>
-                    Submit
+                    {submittext}
                 </Button>
             }
         </Form>
