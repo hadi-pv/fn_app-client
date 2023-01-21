@@ -5,10 +5,10 @@ import dbClient from './postgres/postgres'
 export default async function handler(req, res) {
   const id=uuidv4()
 
-    const {fk_news_id,send_to,send_by}=req.body
+    const {fk_news_id,send_to,send_by,time_taken}=req.body
 
-    const queryText='insert into message(id,fk_news_id,send_to,send_by) values($1,$2,$3,$4);'
-    const queryValues=[id,fk_news_id,send_to,send_by]
+    const queryText='insert into message(id,fk_news_id,send_to,send_by,time_taken) values($1,$2,$3,$4,$5);'
+    const queryValues=[id,fk_news_id,send_to,send_by,time_taken]
 
     var client
     try{

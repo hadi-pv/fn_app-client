@@ -1,0 +1,129 @@
+.smartphone {
+    position: relative;
+    width: 450px;
+    height: 750px;
+    border: 16px black solid;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    border-radius: 36px;
+  }
+  
+  /* The horizontal line on the top of the device */
+  .smartphone:before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 10px;
+  }
+  
+  /* The circle on the bottom of the device */
+  .smartphone:after {
+    content: '';
+    display: block;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    left: 50%;
+    bottom: -65px;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 50%;
+  }
+  
+  /* The screen (or content) of the device */
+  .smartphone .content {
+    width: 410px;
+    height: 530px;
+    background-image: url(../public/bg.jpg);;
+  }
+
+.box{
+    position: relative;
+    height:60px;
+    width:328px;
+    background-color: rgb(18, 140, 126);
+}
+
+.fa-solid{
+    position: relative;
+    left: 70%;
+    padding:7px;
+    top:13px;
+}
+.mytext{
+    position: relative;
+    top:430px;
+    width:280px;
+}
+
+
+.newsCard {
+  position: relative;
+  height: 180px;
+  width: 180Px;
+  background: #d8fcd2;
+  border: 3px #d8fcd2 solid;
+  border-radius:0 5px 5px;
+  cursor: pointer;
+}
+.newsCard:before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: -3px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid white;
+  border-left: 10px solid transparent;
+
+}
+.newsCard .shareImg{
+  height:17px;
+  width: 18px;
+  position: absolute;
+  left: 104%;
+  top: 75px;
+}  
+
+.newsCard .newsImg {
+  height: 70%;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+.newsCard .textBox {
+  background: rgb(241, 241, 255);
+  border-radius: 0 0 5px 5px;
+  height: 30%;
+  line-height: 0.9;
+}
+.newsCard .textBox h1{
+  font-size: 13px;
+  font-weight: 470;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+.newsCard .textBox h2{
+  margin-top: 3px;
+  font-size: 11px;
+  color: rgb(82, 82, 83);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.newsCard .textBox p{
+  margin-top: 4px;
+  font-size: 10px;
+  color: rgb(151, 151, 151);
+}
+
+
