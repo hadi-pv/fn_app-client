@@ -16,7 +16,7 @@ const Mainpageleft=(props)=>{
         
         <>
         <ScrollArea style={{ height: 650 }} >
-          <div className='grid grid-cols-3 gap-5'>  
+          <div className='flex gap-2'>  
             {news.map((v) => (
                     <Card key={v.id}>
                       <div className='bg-[#bde1b9] p-2 rounded-md '>
