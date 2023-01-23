@@ -7,5 +7,6 @@ CREATE TABLE public.users
     family text,
     friend text,
     colleague text,
+    ratingtype text,
     PRIMARY KEY(user_id)
 );

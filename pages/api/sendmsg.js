@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
     const {fk_news_id,send_to,send_by,time_taken}=req.body
 
-    const queryText='insert into message(id,fk_news_id,send_to,send_by,time_taken) values($1,$2,$3,$4,$5);'
+    const queryText='insert into message(id,fk_news_id,send_to,send_by,timetaken) values($1,$2,$3,$4,$5);'
     const queryValues=[id,fk_news_id,send_to,send_by,time_taken]
 
     var client
