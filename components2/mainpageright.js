@@ -46,7 +46,7 @@ const Mainpageright = ({persons, loading,user}) => {
                     dasd
                 </div>*/}
 
-                {loading? 
+                {!loading? 
                     <div className={`${styles.content} flex flex-col justify-center items-center`}>
                         <center><Loader color="green"/></center>
                     </div>:
