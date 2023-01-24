@@ -13,11 +13,58 @@ const Signup = () =>{
     const [friend,setFriend]=useState('')
     const [colleague,setColleague]=useState('')
     
-    const [ischecked,setIschecked]=useState(false)
+    const validateDataFields = () => {
+        if (name === '' || email === '' || age === '' || family === '' || friend === '' || colleague === '') {
+            alert('Please fill all the fields');
+            return false;
+        }
+        else if (isNaN(age)) {
+            alert('Please enter a valid age');
+            return false;
+        }
+        else if (age < 18) {
+            alert('You are not eligible to participate in this survey');
+            return false;
+        }
+        else if (age > 90) {
+            alert('Not a valid age');
+            return false;
+        }
+        else if (!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+        else if (!name.match(/^[a-zA-Z ]+$/)) {
+            alert('Please enter a valid name');
+            return false;
+        }
+        else if (!family.match(/^[a-zA-Z ]+$/)) {
+            alert('Please enter a valid family member name');
+            return false;
+        }
+        else if (!friend.match(/^[a-zA-Z ]+$/)) {
+            alert('Please enter a valid friend name');
+            return false;
+        }
+        else if (!colleague.match(/^[a-zA-Z ]+$/)) {
+            alert('Please enter a valid colleague name');
+            return false;
+        }
+        else if (family === friend || family === colleague || friend === colleague) {
+            alert('Please enter different names');
+            return false;
+        }
+        return true;
+    };
+
 
     const submitHandler=async(e)=>{
         e.preventDefault();
         let ratingtype = Math.floor(Math.random() * 4);
+
+        if (validateDataFields() === false) {
+            return;
+        }
         
         axios.post('/api/signupsheet',{
             email:email,
@@ -35,7 +82,7 @@ const Signup = () =>{
         })
         .catch((err)=>{
             console.log(e);
-            alert("Invalid signup");
+            alert("Some error occured");
             setName("");
             setAge("");
             setEmail("");
@@ -43,7 +90,7 @@ const Signup = () =>{
         };
       
     return(
-        <ScrollArea style={{ height: 500 }}>
+        <ScrollArea style={{ height: 600 }}>
             <Container>
         <Form className={styles.form} onSubmit={submitHandler}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -96,23 +143,12 @@ const Signup = () =>{
                 <Form.Control type="name" placeholder="Colleague" value={colleague} onChange={(e)=>setColleague(e.target.value)}/>
                 </div>
                 <Form.Text className={styles.textmuted}>
-                A Colleagues yo frequently chat with
+                A Colleagues you frequently chat with
                 </Form.Text>        
             </Form.Group>
-
-            
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="I read the instructions and agree to all the terms and conditions" onChange={(e) => setIschecked(e.currentTarget.checked)}/>
-            </Form.Group>
-            {ischecked?
                 <Button variant="primary" type="submit" >
                     Submit
                 </Button>
-                :
-                <Button variant="primary" type="submit" disabled>
-                    Submit
-                </Button>
-            }
         </Form>
         </Container>
         </ScrollArea>
