@@ -101,6 +101,7 @@ const Mainpage = () => {
                             })}                      
                         </div>
             </Drawer>
+            
         </div>
         <div className='d-sm-block d-md-none'>
             <button onClick={handleShow} className=" bg-[#519fff] flex p-2 h-12 w-12  mx-12 mb-2  rounded-md relative top-2 justify-center items-center">
@@ -109,6 +110,7 @@ const Mainpage = () => {
                     <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                 </svg>
             </button>
+            
             <div className='bg-[#e3fff9]a h-[100vh]'>
                 <div className='flex relative top-2 justify-content-center'>
                     <div className={ styles.layout + '   layout h-[95vh] z-2 w-[100vw] shadow-2xl rounded-lg'}>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Modal, Rating, Menu } from "@mantine/core";
 import { ClassNames } from "@emotion/react";
-import { IconSend, IconAlertTriangle,IconBrandTelegram } from "@tabler/icons";
+import { IconShare, IconSend,IconAlertTriangle,IconBrandTelegram } from "@tabler/icons";
 import axios from "axios";
 
 const Modals = (props) => {
@@ -55,10 +55,9 @@ const Modals = (props) => {
         opened={show1}
         transition="fade"
         centered = "true"
-        onClose={handleClose1}
+        onClose={()=>alert('Please complete')} 
         root={ClassNames}
       >
-        <h3 className="text-center">{props.news.title}</h3>
         <div className="flex felx-col justify-between w-full">
           <img
           className="w-full h-80"
@@ -70,9 +69,11 @@ const Modals = (props) => {
         <div className="flex flex-col items-end">
           <Menu>
             <div className="relative">
+              <br/>
               <Menu.Target>
-                <button className="flex bg-green-300 p-2 rounded-md hover:bg-green-400">Share<IconSend fill="white" /></button>
+                <center><button style={{'backgroundColor':'lightblue'}} className="flex border p-3 bg-green-300 p-2 rounded-md hover:bg-green-400">Share <IconSend /></button></center>
               </Menu.Target>
+              <br/>
               <Menu.Dropdown className="absolute top-8">
                 {['family','friend','colleague'].map((v,id) =>(
                   <Menu.Item key={id}
@@ -95,7 +96,7 @@ const Modals = (props) => {
           </Menu>
           <button
             onClick={(e) => {
-              if (props.news.fake) {
+              if (user.rt!='000') {
                 handleShow2();
                 handleClose1();
               }
@@ -105,7 +106,7 @@ const Modals = (props) => {
               }
             }}
           ></button>
-            <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500" onClick={()=>{
+            <button className="bg-green-300 border rounded-lg p-1 hover:bg-green-500" onClick={()=>{
                 const t=new Date()
                 console.log('First close')
                 console.log((t.getTime()-stime.getTime())/1000)
@@ -119,62 +120,146 @@ const Modals = (props) => {
   };
 
   const Model2 = () => {
-    return (
-      <Modal title="Please be advised!!" opened={show2} onClose={handleClose2} centered ="true">
-        <div>
-          <h5>THIS NEWS IS FAKE DO YOU STILL WISH TO CONTINUE</h5>
-          <IconAlertTriangle />
-        </div>
-        <div className="text-center">
-          <p>How do you rate this alert?</p>
-        <Rating value={value} onChange={setValue} size="xl" className="mx-auto" />
-        </div>
-        <div className="flex flex-col items-end">
-          <span className="flex gap-3">
-            <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500" onClick={()=>{
-                handleShow3()
-                handleClose2()
-                }}>
-              YES
+    if(user.rt=='111'){
+      return (
+        <Modal opened={show2} onClose={()=>alert('Please complete')} centered ="true">
+          <div>
+            <center><IconAlertTriangle width='64' height='64'/></center>
+            <h5>Before you share can you please rate this information ? </h5>
+          </div>
+          <br/>
+          <div className="text-center">
+          <Rating value={value} onChange={setValue} size="xl" className="mx-auto" />
+          </div>
+          <br/>
+          <div className="flex flex-col items-end">
+            <span className="flex gap-3">
+              {value==0? 
+              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" disabled>
+              Please rate this
             </button>
-            <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500" onClick={()=>{
-                const t=new Date()
-                console.log('Second close')
-                console.log((t.getTime()-stime.getTime())/1000)
-                handleClose2()
-            }}>
-              NO
-            </button>
-          </span>
-        </div>
-      </Modal>
-    );
+              :
+              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
+                  handleShow3()
+                  handleClose2()
+                  }}>
+                NEXT
+              </button>
+              }
+            </span>
+          </div>
+        </Modal>
+      );
+    }else if(user.rt=='222'){
+      return (
+        <Modal opened={show2} onClose={()=>alert('Please complete')} centered ="true">
+          <div>
+            <center><IconAlertTriangle width='64' height='64'/></center>
+            <h5>Your personal information will be shared along with this message. Do you want to continue?</h5>
+          </div>
+          <br/>
+          <div className="flex flex-col items-center">
+            <span className="flex gap-3">
+              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
+                  send_message()
+                  handleClose2()
+                  }}>
+                YES
+              </button>
+              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
+                  const t=new Date()
+                  console.log('Second close')
+                  console.log((t.getTime()-stime.getTime())/1000)
+                  handleClose2()
+              }}>
+                NO
+              </button>
+            </span>
+          </div>
+        </Modal>
+      );
+    }else if(user.rt=='333'){
+      return (
+        <Modal opened={show2} onClose={()=>alert('Please complete')} centered ="true">
+          <div>
+            <center><IconAlertTriangle width='64' height='64'/></center>
+            <h5>Are you sure about the accuracy of the information being shared?</h5>
+          </div>
+          <br/>
+          <div className="flex flex-col items-center">
+            <span className="flex gap-3">
+              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
+                  handleShow3()
+                  handleClose2()
+                  }}>
+                YES
+              </button>
+              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
+                  handleShow3()
+                  handleClose2()
+              }}>
+                NO
+              </button>
+            </span>
+          </div>
+        </Modal>
+      );
+    }
+    
   };
   const Model3 = () => {
-    return (
-      <Modal title="Please be advised!!" opened={show3} onClose={handleClose3} centered ="true">
-        <h5>YOUR CONTACT INFO WOULD BE SHARED DO YOU STILL WISH TO CONINTUE??</h5>
-        <div className="flex flex-col items-end">
-          <span className="flex gap-3">
-            <button className="bg-red-300  rounded-lg p-1 hover:bg-red-500" onClick={()=>{
-                send_message()
-                handleClose3()
-            }}>
-              YES
-            </button>
-            <button className="bg-green-300 rounded-lg p-1 hover:bg-green-500" onClick={()=>{
-                const t=new Date()
-                console.log('Third close')
-                console.log((t.getTime()-stime.getTime())/1000)
-                handleClose3()
-            }}>
-              NO
-            </button>
-          </span>
+    if(user.rt=='111'){
+     return (
+      <Modal opened={show3} onClose={()=>alert('Please complete')} centered ="true">
+        <h5>DO YOU STILL WISH TO CONTINUE ? </h5>
+        <br/>
+        <div className="flex flex-col items-center">
+            <span className="flex gap-3">
+              <button type="button" className="btn btn-danger py-2 px-4 "   onClick={()=>{
+                  send_message()
+                  handleClose3()
+              }}>
+                YES
+              </button>
+              <button type="button" className="btn btn-success py-2 px-4 " onClick={()=>{
+                  const t=new Date()
+                  console.log('Third close')
+                  console.log((t.getTime()-stime.getTime())/1000)
+                  handleClose3()
+              }}>
+                <strong>NO</strong>
+              </button>
+            </span>
         </div>
-        
       </Modal>
-    );
+    ); 
+    }else if(user.rt=='333'){
+      return (
+        <Modal opened={show3} onClose={handleClose3} centered ="true">
+          <h5>DO YOU STILL WISH TO CONTINUE ? </h5>
+          <br/>
+          <div className="flex flex-col items-center">
+              <span className="flex gap-3">
+                <button type="button" className="btn btn-danger py-2 px-4 "   onClick={()=>{
+                    send_message()
+                    handleClose3()
+                }}>
+                  YES
+                </button>
+                <button type="button" className="btn btn-success py-2 px-4 " onClick={()=>{
+                    const t=new Date()
+                    console.log('Third close')
+                    console.log((t.getTime()-stime.getTime())/1000)
+                    handleClose3()
+                }}>
+                  <strong>NO</strong>
+                </button>
+              </span>
+          </div>
+        </Modal>
+      ); 
+    }
+    
   };
   return (
     <>
@@ -182,7 +267,7 @@ const Modals = (props) => {
       <button onClick={()=>{
         handleShow1()
         setStime(new Date())
-      }} className= "mx-2">Share : <IconBrandTelegram/></button>
+      }} className= "mx-2"><IconShare /> Share to Whatsapp group: </button>
       </div>
       <Model1 />
       <Model2 />

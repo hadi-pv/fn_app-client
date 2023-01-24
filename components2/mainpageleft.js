@@ -22,7 +22,7 @@ const Mainpageleft=(props)=>{
                       <div className='bg-[#bde1b9] p-2 rounded-md '>
                         <img className="h-full" src={v.image} alt="img"/>
                         <br/>
-                        <h6 className='' >{v.title}</h6>
+                        {/* <h6 className='' >{v.title}</h6> */}
                       </div>
                       <Modals news={v} family={props.family} friend={props.friend} colleague={props.colleague} 
                       setFamily={props.setFamily} setFriend={props.setFriend} setColleague={props.setColleague}/>
