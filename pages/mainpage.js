@@ -32,20 +32,12 @@ const Mainpage = () => {
 
 
     useEffect(()=>{
-        setUser(JSON.parse(localStorage.getItem('user')))
-        console.log(user)
+        const user1=JSON.parse(localStorage.getItem('user'))
+        setUser(user1)
         axios.post('/api/getmsg',{
-            send_by:user.id
+            send_by:user1.id
         })
         .then((resp)=>{
-
-            // if(resp.data){
-            //     setFamily(resp.data.message.filter((data)=>data.send_to=='family'))
-            //     setColleague(resp.data.message.filter((data)=>data.send_to=='colleague'))
-            //     setFriend(resp.data.message.filter((data)=>data.send_to=='friend')) 
-            //     setFlag(false)
-
-            // }
             console.log(resp.data)
             if (resp.data){
                 resp.data.message.map((data)=>{
@@ -81,7 +73,7 @@ const Mainpage = () => {
                     </div>
                     <div  className='layout h-[85vh] z-2 w-[50vw] p-3'>
                         <center>
-                            <Mainpageright persons={{family, friend, colleague}} loading={loading} user={user}/>
+                            <Mainpageright persons={{family, friend, colleague}} news={data} loading={loading} user={user}/>
                         </center>
                     </div>
                 </div>
@@ -123,7 +115,7 @@ const Mainpage = () => {
             <div className='bg-[#e3fff9]a h-[100vh]'>
                     <div  className='layout h-[85vh] z-2 w-[100vw]'>
                         <center>
-                            <Mainpageright persons={{family, friend, colleague}} loading={loading} user={user}/>
+                            <Mainpageright persons={{'family':family, 'friend':friend, 'colleague':colleague}} news={data} loading={loading} user={user}/>
                         </center>
                     </div>
             </div>

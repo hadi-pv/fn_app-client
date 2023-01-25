@@ -5,7 +5,7 @@ import Modals from "./modals";
 import { Card } from "react-bootstrap";
 import { Loader } from "@mantine/core";
 
-const Mainpageright = ({persons, loading,user}) => {
+const Mainpageright = ({persons,news,loading,user}) => {
     const [selectedTab, setSelectedTab] = useState("");
    
     return(
@@ -26,9 +26,7 @@ const Mainpageright = ({persons, loading,user}) => {
                                 <button key={id} id={pers} className='w-full m-2' onClick={()=>{
 
                                     setSelectedTab(pers)
-                                    console.log(persons[selectedTab])
-                                    document.getElementById(pers).className="border-b-[3px] border-white w-full m-2"
-
+                                    document.getElementById(pers).className="border-width-3px border-bottom rounded-bottom border-white w-full m-2"
                                     for(const item of ['family','friend','colleague']){
                                         if(item!=pers){
                                             document.getElementById(item).className="w-full m-2"
@@ -46,7 +44,7 @@ const Mainpageright = ({persons, loading,user}) => {
                     dasd
                 </div>*/}
 
-                {!loading? 
+                {loading? 
                     <div className={`${styles.content} flex flex-col justify-center items-center`}>
                         <center><Loader color="green"/></center>
                     </div>:
@@ -54,15 +52,16 @@ const Mainpageright = ({persons, loading,user}) => {
                     {
                         !selectedTab? <h1 style={{'marginBottom':'300px'}}><center>Select a Person</center></h1>:
                         persons[selectedTab].map((obj)=>{
+                            const objnews= news.filter((k)=>k.id==obj)[0]
                             return(
-                                <div key={obj.id} className="d-flex flex-row-reverse p-2 col-example text-left">
-                                    <Card style={{ width: '20rem' }}>
+                                <div key={objnews.id} className="d-flex flex-row-reverse p-2 col-example text-left">
+                                    <Card style={{ width: '15rem' }}>
                                         <Card.Body>
-                                            <Card.Title>{obj.title}</Card.Title>
+                                            <Card.Title>{objnews.title}</Card.Title>
                                             <Card.Text>
-                                                <img src={obj.image} alt="news_image" className="img-fluid" style={{'width':'100%'}}/>
+                                                <img src={objnews.image} alt="news_image" className="img-fluid" style={{'width':'100%'}}/>
                                             </Card.Text>
-                                            <Modals news={obj}/>
+                                            <Modals news={objnews} right={true}/>
                                         </Card.Body>
                                     </Card>
                                 </div>

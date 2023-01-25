@@ -24,16 +24,16 @@ const LoginPassword = () =>{
         <div className='flex flex-col p-4'>
             <div className='text-2xl font-bold mb-3'>
                 Dear Friends, <br/><br/>
-                A warm hello from the Indian Institute of Technology Madras! <br/><br/>
-                We are a team of researchers from the Department of Management Studies, IITM invested in understanding how to improve the quality and accuracy of information shared on social media platforms. Considering the role of social media in information dissemination, we feel it is important to understand how users experiences with regard to ‘information’ can be enhanced on social media platforms. We invite your valuable contribution to this study about health information on social media. <br/><br/>
-                The study has two phases: <br/>
-                • In the first phase, you have a small information game (10 mins) <br/>
-                • In the second phase,  you are given a questionnaire ( 15 mins) <br/><br/>
+                <b>A warm hello from the Indian Institute of Technology Madras!</b> <br/><br/>
+                We are a team of researchers from the Department of Management Studies, Indian Institute of Technology Madras invested in understanding how to improve the quality and accuracy of information shared on social media platforms. Considering the role of social media in information dissemination, we feel it is important to understand how users experiences with regard to ‘information’ can be enhanced on social media platforms. We invite your valuable contribution to this study about health information on social media. <br/><br/>
+                <b>The study has two phases:</b> <br/>
+                <b>• In the first phase, you have a small information game (10 mins)</b> <br/>
+                <b>• In the second phase,  you are given a questionnaire ( 15 mins)</b> <br/><br/>
                 The participation in this study is voluntary and poses no risk. You may choose to withdraw from the study at any point without giving a reason. Should you have any queries, you may ask the corresponding researcher. <br/><br/>
                 We appreciate your time and contribution to academia. <br/><br/>
                 Best Regards, <br/>
                 Muhammed Sadiq T  (Ph.D. Candidate and Corresponding Researcher), connectsadiqt@gmail.com <br/>
-                Dr. Saji Mathew (Associate Professor, IIT Madras)
+                Dr. Saji Mathew (Professor, IIT Madras)
             </div>
             <div>
                 <Form>

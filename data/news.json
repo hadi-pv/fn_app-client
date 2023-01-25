@@ -16,5 +16,101 @@
         "title":"Natural calamity",
         "image" : "/F3.jpg",
         "fake" : true
-    }  
+    },
+    {
+        "id":4,
+        "title":"Natural calamity",
+        "image" : "/F4.jpg",
+        "fake" : true
+    },
+    {
+        "id":5,
+        "title":"Natural calamity",
+        "image" : "/F5.jpg",
+        "fake" : true
+    },
+    {
+        "id":6,
+        "title":"Natural calamity",
+        "image" : "/F6.jpg",
+        "fake" : true
+    },
+    {
+        "id":7,
+        "title":"Natural calamity",
+        "image" : "/F7.jpg",
+        "fake" : true
+    },
+    {
+        "id":8,
+        "title":"Natural calamity",
+        "image" : "/F8.jpg",
+        "fake" : true
+    },
+    {
+        "id":9,
+        "title":"Natural calamity",
+        "image" : "/F9.jpg",
+        "fake" : true
+    },
+    {
+        "id":10,
+        "title":"Natural calamity",
+        "image" : "/F10.jpg",
+        "fake" : true
+    },
+    {
+        "id":11,
+        "title":"Natural calamity",
+        "image" : "/F11.jpg",
+        "fake" : true
+    },
+    {
+        "id":12,
+        "title":"Natural calamity",
+        "image" : "/R1.jpg",
+        "fake" : false
+    },
+    {
+        "id":13,
+        "title":"Natural calamity",
+        "image" : "/R2.jpg",
+        "fake" : false
+    },
+    {
+        "id":14,
+        "title":"Natural calamity",
+        "image" : "/R3.jpg",
+        "fake" : false
+    },
+    {
+        "id":15,
+        "title":"Natural calamity",
+        "image" : "/R4.jpg",
+        "fake" : false
+    },
+    {
+        "id":16,
+        "title":"Natural calamity",
+        "image" : "/R5.jpg",
+        "fake" : false
+    },
+    {
+        "id":17,
+        "title":"Natural calamity",
+        "image" : "/R6.jpg",
+        "fake" : false
+    },
+    {
+        "id":18,
+        "title":"Natural calamity",
+        "image" : "/R7.jpg",
+        "fake" : false
+    },
+    {
+        "id":19,
+        "title":"Natural calamity",
+        "image" : "/R8.jpg",
+        "fake" : false
+    }
 ]
