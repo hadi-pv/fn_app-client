@@ -25,7 +25,7 @@ const LoginPassword = () =>{
             <div className='text-2xl font-bold mb-3'>
                 Dear Friends, <br/><br/>
                 A warm hello from the Indian Institute of Technology Madras! <br/><br/>
-                We are a team of researchers from the Department of Management Studies, IITM invested in understanding how to improve the quality and accuracy of information shared on social media platforms. Considering the role of social media in information dissemination, we feel it is important to understand how users' experiences with regard to ‘information’ can be enhanced on social media platforms. We invite your valuable contribution to this study about health information on social media. <br/><br/>
+                We are a team of researchers from the Department of Management Studies, IITM invested in understanding how to improve the quality and accuracy of information shared on social media platforms. Considering the role of social media in information dissemination, we feel it is important to understand how users experiences with regard to ‘information’ can be enhanced on social media platforms. We invite your valuable contribution to this study about health information on social media. <br/><br/>
                 The study has two phases: <br/>
                 • In the first phase, you have a small information game (10 mins) <br/>
                 • In the second phase,  you are given a questionnaire ( 15 mins) <br/><br/>
