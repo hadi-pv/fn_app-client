@@ -16,16 +16,17 @@ const Mainpageleft=(props)=>{
         
         <>
         <ScrollArea style={{ height: 650 }} >
-        <div className='flex flex-wrap gap-2'>  
+        <div className='flex flex-wrap gap-2 '>  
             {news.map((v, index) => (
                     <Card key={v.id}>
-                      <div className='bg-[#bde1b9] p-2 rounded-md '>
-                        <img className="h-full" src={v.image} alt="img" height={180} width={180} />
-                        <br/>
-                        {/* <h6 className='' >{v.title}</h6> */}
+                      <div className='bg-[#bde1b9] rounded-md ' style={{'height':'100%'}}>
+                        <center><img className="h-full" src={v.image} alt="img" height={180} width={180} /></center>  
                       </div>
-                      <Modals news={v} family={props.family} friend={props.friend} colleague={props.colleague} 
-                      setFamily={props.setFamily} setFriend={props.setFriend} setColleague={props.setColleague}/>
+                      <div>
+                        <Modals news={v} family={props.family} friend={props.friend} colleague={props.colleague} 
+                        setFamily={props.setFamily} setFriend={props.setFriend} setColleague={props.setColleague}/> 
+                      </div>
+                      
                     </Card>
             ))}   
           </div>

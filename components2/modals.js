@@ -262,17 +262,18 @@ const Modals = (props) => {
     
   };
   return (
-    <>
+    <div >
+      <Model1 />
+      <Model2 />
+      <Model3 />
+      <br/>
       <div className="flex justify-end">
       <button onClick={()=>{
         handleShow1()
         setStime(new Date())
-      }} className= "mx-2"><IconShare /> Share to Whatsapp group: </button>
+      }} type='button' style={{'alignSelf':'bottom'}} className= "btn btn-secondary flex mx-2"><IconShare />{props.right? '':'Share to Whatsapp group:'}</button>
       </div>
-      <Model1 />
-      <Model2 />
-      <Model3 />
-    </>
+    </div>
   );
 };
 

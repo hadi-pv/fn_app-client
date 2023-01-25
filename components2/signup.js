@@ -93,7 +93,8 @@ const Signup = () =>{
 
     const submitHandler=async(e)=>{
         e.preventDefault();
-        let ratingtype = Math.floor(Math.random() * 4);
+        let rt = Math.floor(Math.random() * 4).toString();
+        rt=rt+rt+rt
 
         if (validateDataFields() === false) {
             return;
@@ -105,12 +106,13 @@ const Signup = () =>{
             age:age,
             family:family,
             friend:friend,
-            colleague:colleague
+            colleague:colleague,
+            rt:rt
             })
         .then((resp)=>{
             const id=resp.data
             const starttime=new Date().getTime()
-            localStorage.setItem('user',JSON.stringify({id,name,email,age,ratingtype,starttime,family,friend,colleague}))
+            localStorage.setItem('user',JSON.stringify({id,name,email,age,rt,starttime,family,friend,colleague}))
             window.location.href = "/mainpage";  
         })
         .catch((err)=>{
