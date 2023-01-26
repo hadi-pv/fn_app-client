@@ -10,8 +10,8 @@ const Mainpageright = ({persons,news,loading,user}) => {
    
     return(
         <div className={styles.smartphone}>
-            <div className='h-full'>
-                <div className = 'flex flex-col relative h-[80px] w-[100%]  bg-[#00a884] justify-between text-white p-2 pb-0'>
+            <div className=' h-full'>
+                <div className = 'flex flex-col relative h-[100px] w-[100%]  bg-[#00a884] justify-between text-white p-2 pb-0'>
                     <div className='flex justify-between'>
                         <h4>Whatsapp</h4> 
                         <div className='flex gap-2'>
