@@ -6,7 +6,7 @@ import { Card } from "react-bootstrap";
 import { Loader } from "@mantine/core";
 
 const Mainpageright = ({persons,news,loading,user}) => {
-    const [selectedTab, setSelectedTab] = useState("");
+    const [selectedTab, setSelectedTab] = useState('');
    
     return(
         <div className={styles.smartphone}>
@@ -19,13 +19,14 @@ const Mainpageright = ({persons,news,loading,user}) => {
                             <IconDotsVertical/> 
                         </div>
                     </div>
-                    <div className='person_class flex justify-between'>
+                    <div className='person_class h-[100px] flex justify-between'>
                     {
                         ['family','friend','colleague'].map((pers,id)=>{
                             return(
                                 <button key={id} id={pers} className='w-full m-2' onClick={()=>{
 
                                     setSelectedTab(pers)
+                                    console.log(persons[pers])
                                     document.getElementById(pers).className="border-width-3px border-bottom rounded-bottom border-white w-full m-2"
                                     for(const item of ['family','friend','colleague']){
                                         if(item!=pers){
@@ -44,7 +45,7 @@ const Mainpageright = ({persons,news,loading,user}) => {
                     dasd
                 </div>*/}
 
-                {loading? 
+                {!loading? 
                     <div className={`${styles.content} flex flex-col justify-center items-center`}>
                         <center><Loader color="green"/></center>
                     </div>:

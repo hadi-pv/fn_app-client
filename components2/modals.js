@@ -8,12 +8,12 @@ const Modals = (props) => {
   useEffect(() => {
 
     setUser(JSON.parse(localStorage.getItem("user")));
-    setStime(new Date())
     
   }, []);
 
   const [user, setUser] = useState("");
   const [value,setValue]=useState(0);
+  const [accuracy,setAccuracy]=useState('')
   const [stime,setStime]=useState('');
   const [sendto,setSendto]=useState('')
 
@@ -45,6 +45,84 @@ const Modals = (props) => {
       send_to:sendto,
       send_by:user.id,
       time_taken:t
+    })
+    .then((req)=>{
+      console.log('message send succesfully')
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
+
+  /* 
+    Task numbers:
+
+    rt type:000
+        task 00:send
+        task 01:close
+    rt type:111
+        task 10:send
+        task 11:close from modal 1
+        task 13:close from modal 3
+    rt type:222
+        task 20:send
+        task 21:close from modal 1
+        task 22:close from modal 2
+    rt type:333
+        task 30:send
+        task 31:close from modal 1
+        task 33:close from modal 3
+
+    task 40 : end of the experiment
+*/
+  
+  const sendlog=(taskno)=>{
+    console.log(taskno)
+    const log={}
+    const t=Math.floor((new Date().getTime()-stime.getTime())/1000)
+    switch(taskno){
+      case '00':
+        log={news_id:props.news.id,user_id:user.id,task:'00',rt:'000',send_to:sendto,close_from:'',time_in_sec:t,add_info:''}
+        break  
+      case '01':
+        log={news_id:props.news.id,user_id:user.id,task:'01',rt:'000',send_to:'',close_from:'1',time_in_sec:t,add_info:''}
+        break  
+      case '10':
+        log={news_id:props.news.id,user_id:user.id,task:'10',rt:'111',send_to:sendto,close_from:'',time_in_sec:t,add_info:`rating is ${value}`}
+        break   
+      case '11':
+        log={news_id:props.news.id,user_id:user.id,task:'11',rt:'111',send_to:'',close_from:'1',time_in_sec:t,add_info:''}
+        break 
+      case '13':
+        log={news_id:props.news.id,user_id:user.id,task:'13',rt:'111',send_to:sendto,close_from:'3',time_in_sec:t,add_info:`rating is ${value}`}
+        break 
+      case '20':
+        log={news_id:props.news.id,user_id:user.id,task:'20',rt:'222',send_to:sendto,close_from:'',time_in_sec:t,add_info:''}
+        break  
+      case '21':
+        log={news_id:props.news.id,user_id:user.id,task:'21',rt:'222',send_to:'',close_from:'1',time_in_sec:t,add_info:''}
+        break  
+      case '22':
+        log={news_id:props.news.id,user_id:user.id,task:'22',rt:'222',send_to:sendto,close_from:'2',time_in_sec:t,add_info:''}
+        break   
+      case '30':
+        log={news_id:props.news.id,user_id:user.id,task:'30',rt:'333',send_to:sendto,close_from:'',time_in_sec:t,add_info:''}
+        break 
+      case '31':
+        log={news_id:props.news.id,user_id:user.id,task:'31',rt:'333',send_to:'',close_from:'1',time_in_sec:t,add_info:''}
+        break 
+      case '33':
+        log={news_id:props.news.id,user_id:user.id,task:'33',rt:'333',send_to:sendto,close_from:'3',time_in_sec:t,add_info:`User is sure of accuracy : ${accuracy}`}
+        break 
+        
+    }
+    
+    axios.post('/api/sendlog',log)
+    .then((req)=>{
+      console.log('log send successfully')
+    })
+    .catch((err)=>{
+      console.log(err)
     })
   }
 
@@ -79,12 +157,15 @@ const Modals = (props) => {
                   <Menu.Item key={id}
                     onClick={(e) => {
                       setSendto(v)
-                      if (props.news.fake) {
+                      if (user.rt!='000') {
                         handleShow2();
-                      }else{
-                        send_message()
+                        handleClose1();
                       }
-                      handleClose1();
+                      else{
+                        send_message()
+                        sendlog('00')
+                        handleClose1();
+                      }
                     }}
                   >
                     {user[v]}
@@ -107,9 +188,15 @@ const Modals = (props) => {
             }}
           ></button>
             <button className="bg-green-300 border rounded-lg p-1 hover:bg-green-500" onClick={()=>{
-                const t=new Date()
-                console.log('First close')
-                console.log((t.getTime()-stime.getTime())/1000)
+                if(user.rt=='000'){
+                  sendlog('01')
+                }else if(user.rt=='111'){
+                  sendlog('11')
+                }else if(user.rt=='222'){
+                  sendlog('21')
+                }else if(user.rt=='333'){
+                  sendlog('31')
+                }
                 handleClose1()
             }}>
               Close
@@ -162,14 +249,13 @@ const Modals = (props) => {
             <span className="flex gap-3">
               <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
                   send_message()
+                  sendlog('20')
                   handleClose2()
                   }}>
                 YES
               </button>
               <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
-                  const t=new Date()
-                  console.log('Second close')
-                  console.log((t.getTime()-stime.getTime())/1000)
+                  sendlog('22')
                   handleClose2()
               }}>
                 NO
@@ -190,12 +276,14 @@ const Modals = (props) => {
             <span className="flex gap-3">
               <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
                   handleShow3()
+                  setAccuracy('true')
                   handleClose2()
                   }}>
                 YES
               </button>
               <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
                   handleShow3()
+                  setAccuracy('false')
                   handleClose2()
               }}>
                 NO
@@ -217,14 +305,13 @@ const Modals = (props) => {
             <span className="flex gap-3">
               <button type="button" className="btn btn-danger py-2 px-4 "   onClick={()=>{
                   send_message()
+                  sendlog('10')
                   handleClose3()
               }}>
                 YES
               </button>
               <button type="button" className="btn btn-success py-2 px-4 " onClick={()=>{
-                  const t=new Date()
-                  console.log('Third close')
-                  console.log((t.getTime()-stime.getTime())/1000)
+                  sendlog('13')
                   handleClose3()
               }}>
                 <strong>NO</strong>
@@ -242,14 +329,13 @@ const Modals = (props) => {
               <span className="flex gap-3">
                 <button type="button" className="btn btn-danger py-2 px-4 "   onClick={()=>{
                     send_message()
+                    sendlog('30')
                     handleClose3()
                 }}>
                   YES
                 </button>
                 <button type="button" className="btn btn-success py-2 px-4 " onClick={()=>{
-                    const t=new Date()
-                    console.log('Third close')
-                    console.log((t.getTime()-stime.getTime())/1000)
+                    sendlog('33')
                     handleClose3()
                 }}>
                   <strong>NO</strong>
@@ -271,6 +357,7 @@ const Modals = (props) => {
       <button onClick={()=>{
         handleShow1()
         setStime(new Date())
+        props.setOpenedNews([...props.openedNews,props.news.id])
       }} type='button' style={{'alignSelf':'bottom'}} className= "btn btn-secondary flex mx-2"><IconShare />{props.right? '':'Share to Whatsapp group:'}</button>
       </div>
     </div>

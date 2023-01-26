@@ -32,6 +32,7 @@ const Mainpage = () => {
     const [colleague,setColleague]=useState([])
     const [loading,setLoading]=useState(true)
 
+    const [openedNews,setOpenedNews]=useState([])
 
     useEffect(()=>{
         const user1=JSON.parse(localStorage.getItem('user'))
@@ -61,7 +62,7 @@ const Mainpage = () => {
         <div>
             <div className='bg-[#e3fff9]a h-[100vh]'>
                 <div className='w-full bg-[#00a884] -z-1 h-[8vh]'>
-                    <img src='/iitmlogo.png' className='w-[6vh] h-[6vh] absolute top-[1vh] left-[1vh]'/>
+                    <img src='/iitmlogo.png' className='w-[6vh] h-[6vh] absolute top-[1vh] left-[5vh]'/>
                     <button onClick={handleShow} className=" bg-[#ffffff] w-[6vh] h-[6vh] p-2 absolute top-[1vh] right-[1vh] rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -88,8 +89,10 @@ const Mainpage = () => {
                 <div className='flex relative justify-between px-[6vw] py-[2vh] h-[92vh] d-none d-md-flex'>
                     <div className={ styles.layout + ' layout h-[88vh] z-2 w-[50vw] shadow-2xl p-3 rounded-lg'}>
                         {!data? <Loader color="green"/>:
-                        <Mainpageleft news={data} family={family} friend={friend} colleague={colleague}
+                        <Mainpageleft openedNews={openedNews} setOpenedNews={setOpenedNews} news={data} family={family} friend={friend} colleague={colleague}
                         setFamily={setFamily} setFriend={setFriend} setColleague={setColleague}/>}
+                        <br/>
+                        <center>{openedNews.length>=3? <button type='button' className='btn btn-primary'><strong>TO NEXT SEGMENT</strong></button>: ''}</center>
                     </div>
                     <div className='layout h-[88vh] z-2 w-[50vw] p-3 justify-center items-center flex'>
                         <Mainpageright persons={{family, friend, colleague}} news={data} loading={loading} user={user}/>
@@ -100,11 +103,14 @@ const Mainpage = () => {
                     opened ={show}
                     onClose = {handleClose}
                     title = 'Build by tensors'
-                    size ="sm"
+                    size ="lg"
                     position="right"
                     >
-                        <div>
-                            <h3>Instructions</h3>
+                        <div style={{'padding':'1vh'}}>
+                            <center><h3>Instructions</h3></center>
+                            <br/>
+                            <h5>Number of news articles opened : <br/>
+                            <center><button type='button' className='btn btn-primary'><strong>{openedNews.length}</strong></button></center></h5>
                             <br/>
                             {Object.keys(user).map((k,id)=>{
                                 return(
