@@ -80,7 +80,7 @@ const Mainpage = () => {
                                     setFamily={setFamily} setFriend={setFriend} setColleague={setColleague}/>
                                 }
                                 <div className='flex justify-center items-center h-[8vh]'>
-                                    {openedNews.length>=3? <button type='button' className='btn btn-primary'><strong>TO NEXT SEGMENT</strong></button>: ''}
+                                    <button type='button' className='btn btn-primary' disabled={openedNews.length<3} onClick={()=> window.location.href='/feedback'} ><strong>TO NEXT SEGMENT</strong></button>
                                 </div>
                             </div>
                         </Tab>
@@ -98,7 +98,7 @@ const Mainpage = () => {
                             setFamily={setFamily} setFriend={setFriend} setColleague={setColleague}/>
                         }
                         <div className='flex justify-center items-center h-[10vh]'>
-                            {openedNews.length>=3? <button type='button' className='btn btn-primary'><strong>TO NEXT SEGMENT</strong></button>: ''}
+                            <button type='button' className='btn btn-primary' disabled={openedNews.length<3} onClick={()=> window.location.href='/feedback'} ><strong>TO NEXT SEGMENT</strong></button>
                         </div>
                     </div>
                     <div className='layout h-[88vh] z-2 w-[50vw] p-3 justify-center items-center flex'>
