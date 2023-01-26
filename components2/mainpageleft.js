@@ -7,27 +7,26 @@ import Modals from './modals';
 // import Card from './Card';
 import styles from "../styles/card.module.css";
 
-const Card = ({ children }) => {
-  return <div className={styles.newsCard}>{children}</div>;
-};
+
 
 const Mainpageleft=(props)=>{
     return(
         
         <>
-        <ScrollArea style={{ height: 650 }} >
-        <div className='flex flex-wrap gap-2 '>  
+        <ScrollArea style={{ 'height': '75vh' }} >
+        <div className='flex flex-wrap gap-2'>  
             {news.map((v, index) => (
-                    <Card key={v.id}>
+                    <div className={(props.openedNews.includes(v.id)? styles.newsCard2 : styles.newsCard)} key={v.id}>
                       <div className='bg-[#bde1b9] rounded-md ' style={{'height':'100%'}}>
                         <center><img className="h-full" src={v.image} alt="img" height={180} width={180} /></center>  
                       </div>
                       <div>
-                        <Modals news={v} family={props.family} friend={props.friend} colleague={props.colleague} 
+                        <Modals openedNews={props.openedNews} setOpenedNews={props.setOpenedNews} news={v} family={props.family} friend={props.friend} colleague={props.colleague} 
                         setFamily={props.setFamily} setFriend={props.setFriend} setColleague={props.setColleague}/> 
+                        {props.opened}
                       </div>
                       
-                    </Card>
+                    </div>
             ))}   
           </div>
         </ScrollArea>
