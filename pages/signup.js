@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Signup from '../components2/signupform'
 
 export default function Home() {
