@@ -41,7 +41,7 @@ const Signup = () =>{
     const validateDataFields = () => {
         if (name === '' || email === '' || age === '' || family === '' || friend === '' || colleague === '' ||
             gender === '' || motherTongue === '' || homeState === '' || educationalQualification === '' ||
-            educationalBackground === '' || occupation === '' || socialMediaUsage.length === 0 ||
+            educationalBackground === '' || socialMediaUsage.length === 0 ||
             socialMediaUsageOrder["1"] === '' ||socialMediaUsageOrder["2"] === '' || socialMediaUsageOrder["3"] === ''
              || socialMediaUsageTime === '' || whatsappUsageTime === '' ||
             isWhatsappGroupMember === '' || whatsappUsageFrequencyForNews === '' || prefferedLanguageOnSocialMedia === '') {
