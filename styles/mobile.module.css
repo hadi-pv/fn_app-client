@@ -1,11 +1,11 @@
 .smartphone {
     position: relative;
-    width: 450px;
-    height: 750px;
-    border: 16px black solid;
-    border-top-width: 60px;
-    border-bottom-width: 60px;
-    border-radius: 36px;
+    width: 50vh;
+    height: 75vh;
+    border: 10px black solid;
+    border-top-width: 40px;
+    border-bottom-width: 50px;
+    border-radius: 20px;
   }
   
   /* The horizontal line on the top of the device */
@@ -15,7 +15,7 @@
     width: 60px;
     height: 5px;
     position: absolute;
-    top: -30px;
+    top: -20px;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #333;
@@ -30,7 +30,7 @@
     height: 35px;
     position: absolute;
     left: 50%;
-    bottom: -65px;
+    bottom: -60px;
     transform: translate(-50%, -50%);
     background: #333;
     border-radius: 50%;
@@ -38,9 +38,15 @@
   
   /* The screen (or content) of the device */
   .smartphone .content {
-    width: 410px;
-    height: 530px;
-    background-image: url(../public/bg.jpg);;
+    width: (24.5)vw;
+    height: 56vh;
+    background-image: url(../public/bg.jpg);
+  }
+
+  .smartphone .content2 {
+    width: (24.5)vw;
+    height: 50vh;
+    background-image: url(../public/bg.jpg);
   }
 
 .box{
