@@ -20,7 +20,7 @@ const LoginPassword = () =>{
     }
 
     return(
-        <ScrollArea style={{ height: 600 }}>
+        <ScrollArea style={{ height: "90vh" }}>
         <div className='flex flex-col p-4'>
             <div className='text-2xl font-bold mb-3'>
                 Dear Friends, <br/><br/>
@@ -42,7 +42,7 @@ const LoginPassword = () =>{
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                        <Form.Control type="password" placeholder="Enter the password" onChange={(e)=>setPassword(e.target.value)}/>
                     </Form.Group>
                     <Button variant="primary" type="button" onClick={validatePassword} disabled={!ischecked}>
                         Submit
