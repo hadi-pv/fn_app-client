@@ -106,7 +106,7 @@ const Modals = (props) => {
         log={news_id:props.news.id,user_id:user.id,task:'22',rt:'222',send_to:sendto,close_from:'2',time_in_sec:t,add_info:''}
         break   
       case '30':
-        log={news_id:props.news.id,user_id:user.id,task:'30',rt:'333',send_to:sendto,close_from:'',time_in_sec:t,add_info:''}
+        log={news_id:props.news.id,user_id:user.id,task:'30',rt:'333',send_to:sendto,close_from:'',time_in_sec:t,add_info:`User is sure of accuracy : ${accuracy}`}
         break 
       case '31':
         log={news_id:props.news.id,user_id:user.id,task:'31',rt:'333',send_to:'',close_from:'1',time_in_sec:t,add_info:''}

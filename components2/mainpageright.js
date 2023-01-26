@@ -5,7 +5,7 @@ import Modals from "./modals";
 import { Card } from "react-bootstrap";
 import { Loader } from "@mantine/core";
 
-const Mainpageright = ({persons,news,loading,user}) => {
+const Mainpageright = ({persons,news,loading,user,openedNews,setOpenedNews}) => {
     const [selectedTab, setSelectedTab] = useState('');
    
     return(
@@ -58,11 +58,10 @@ const Mainpageright = ({persons,news,loading,user}) => {
                                 <div key={objnews.id} className="d-flex flex-row-reverse p-2 col-example text-left">
                                     <Card style={{ width: '15rem' }}>
                                         <Card.Body>
-                                            <Card.Title>{objnews.title}</Card.Title>
                                             <Card.Text>
                                                 <img src={objnews.image} alt="news_image" className="img-fluid" style={{'width':'100%'}}/>
                                             </Card.Text>
-                                            <Modals news={objnews} right={true}/>
+                                            <Modals openedNews={openedNews} setOpenedNews={setOpenedNews} news={objnews} right={true}/>
                                         </Card.Body>
                                     </Card>
                                 </div>

@@ -80,7 +80,7 @@ const Mainpage = () => {
                     </div>
                     <div  className='layout h-[85vh] z-2 w-[50vw] p-3'>
                         <center>
-                            <Mainpageright persons={{family, friend, colleague}} news={data} loading={loading} user={user}/>
+                            <Mainpageright openedNews={openedNews} setOpenedNews={setOpenedNews} persons={{family, friend, colleague}} news={data} loading={loading} user={user}/>
                         </center>
                     </div>
                 </div>
@@ -122,14 +122,14 @@ const Mainpage = () => {
                         <Mainpageleft openedNews={openedNews} setOpenedNews={setOpenedNews} news={data} family={family} friend={friend} colleague={colleague}
                         setFamily={setFamily} setFriend={setFriend} setColleague={setColleague}/>}
                         <br/>
-                        <center>{openedNews.length>=3? <button type='button' className='btn btn-primary'><strong>TO NEXT SEGMENT</strong></button>: ''}</center>
+                        <center>{openedNews.length>=7? <button type='button' className='btn btn-primary'><strong>TO NEXT SEGMENT</strong></button>: ''}</center>
                     </div>
                 </div>
             </div>
             <div className='bg-[#e3fff9]a h-[100vh]'>
                     <div  className='layout h-[85vh] z-2 w-[100vw]'>
                         <center>
-                            <Mainpageright persons={{'family':family, 'friend':friend, 'colleague':colleague}} news={data} loading={loading} user={user}/>
+                            <Mainpageright openedNews={openedNews} setOpenedNews={setOpenedNews} persons={{'family':family, 'friend':friend, 'colleague':colleague}} news={data} loading={loading} user={user}/>
                         </center>
                     </div>
             </div>
