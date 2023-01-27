@@ -20,5 +20,6 @@ CREATE TABLE public.users
     friend text,
     colleague text,
     ratingtype text,
+    newstype text,
     PRIMARY KEY(user_id)
 );

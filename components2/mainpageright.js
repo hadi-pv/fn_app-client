@@ -36,7 +36,7 @@ const Mainpageright = ({persons,news,loading,user,openedNews,setOpenedNews}) => 
                                     }
                                     console.log(document.getElementById(pers).className)
 
-                                }}><h6>{user[pers].toUpperCase()}</h6></button> 
+                                }}><h6>{user[pers]}</h6></button> 
                             );
                         })
                     }  

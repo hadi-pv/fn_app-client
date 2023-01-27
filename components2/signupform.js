@@ -93,8 +93,38 @@ const Signup = () =>{
 
     const submitHandler=async(e)=>{
         e.preventDefault();
-        let rt = Math.floor(Math.random() * 4).toString();
-        rt=rt+rt+rt
+        let news_rand = Math.floor(Math.random() * 8).toString();
+        const rt=''
+        const nt=''
+
+        switch(news_rand){
+            case '0':
+                rt='000'
+                nt='ptn'
+            case '1':
+                rt='000'
+                nt='lsn'
+            case '2':
+                rt='111'
+                nt='ptn'
+            case '3':
+                rt='111'
+                nt='lsn'
+            case '4':
+                rt='222'
+                nt='ptn'
+            case '5':
+                rt='222'
+                nt='lsn'
+            case '6':
+                rt='333'
+                nt='ptn'
+            case '7':
+                rt='333'
+                nt='lsn'
+
+        }
+        
 
         if (validateDataFields() === false) {
             return;
@@ -119,12 +149,13 @@ const Signup = () =>{
             family:family,
             friend:friend,
             colleague:colleague,
-            rt:rt
+            rt:rt,
+            nt:nt
             })
         .then((resp)=>{
             const id=resp.data
             const starttime=new Date().getTime()
-            localStorage.setItem('user',JSON.stringify({id,name,email,age,rt,starttime,family,friend,colleague}))
+            localStorage.setItem('user',JSON.stringify({id,name,email,age,rt,nt,starttime,family,friend,colleague}))
             window.location.href = "/mainpage";  
         })
         .catch((err)=>{
@@ -187,8 +218,8 @@ const Signup = () =>{
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="socialMediaUsage">
                         <Form.Label> Which of these Social Media platforms do you use? </Form.Label>
-                        {socialMediaUsageOptions.map((socialMediaUsageOption) => (
-                            <Form.Check type="checkbox" label={socialMediaUsageOption} onChange={(e) => { if (e.target.checked) { setSocialMediaUsage([...socialMediaUsage, socialMediaUsageOption]); }
+                        {socialMediaUsageOptions.map((socialMediaUsageOption,id) => (
+                            <Form.Check key={id} type="checkbox" label={socialMediaUsageOption} onChange={(e) => { if (e.target.checked) { setSocialMediaUsage([...socialMediaUsage, socialMediaUsageOption]); }
                             else { setSocialMediaUsage(socialMediaUsage.filter((socialMediaUsageOption) => socialMediaUsageOption !== e.target.value)); } }} />
                         ))}
                     </Form.Group>

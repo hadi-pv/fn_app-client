@@ -26,7 +26,7 @@ const Mainpage = () => {
     const handleShow = () => setShow(true);
 
     const [user,setUser]=useState('')
-    const [data,setData]=useState(news)
+    const [data,setData]=useState([])
     const [family,setFamily]=useState([])
     const [friend,setFriend]=useState([])
     const [colleague,setColleague]=useState([])
@@ -45,7 +45,7 @@ const Mainpage = () => {
     useEffect(()=>{
         const user1=JSON.parse(localStorage.getItem('user'))
         setUser(user1)
-        news=shuffleArray(news)
+        setData(shuffleArray(news))
         // axios.post('/api/getmsg',{
         //     send_by:user1.id
         // })
@@ -71,7 +71,7 @@ const Mainpage = () => {
         <div>
             <div className='bg-[#e3fff9]a h-[100vh]'>
                 <div className='w-full bg-[#00a884] -z-1 h-[8vh]'>
-                    <img src='/iitmlogo.png' className='w-[6vh] h-[6vh] absolute top-[1vh] left-[1vh]'/>
+                    <img src='/iitmlogo.png' alt='IITM LOGO' className='w-[6vh] h-[6vh] absolute top-[1vh] left-[1vh]'/>
                     <button onClick={handleShow} className=" bg-[#ffffff] w-[6vh] h-[6vh] p-2 absolute top-[1vh] right-[1vh] rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>

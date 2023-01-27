@@ -3,85 +3,99 @@
         "id":1,
         "title":"Natural calamity",
         "image" : "/F1.jpg",
-        "fake":true
+        "fake":true,
+        "nt":"ptn"
     },
     {
         "id":2,
         "title":"Natural calamity",
         "image" : "/F2.jpg",
-        "fake":false
+        "fake":false,
+        "nt":"lsn"
     },
     {
         "id":3,
         "title":"Natural calamity",
         "image" : "/F3.jpg",
-        "fake" : true
+        "fake" : true,
+        "nt":"ptn"
     },
     {
         "id":4,
         "title":"Natural calamity",
         "image" : "/F4.jpg",
-        "fake" : true
+        "fake" : true,
+        "nt":"ptn"
     },
     {
         "id":5,
         "title":"Natural calamity",
         "image" : "/F5.jpg",
-        "fake" : true
+        "fake" : true,
+        "nt":"ptn"
     },
     {
         "id":6,
         "title":"Natural calamity",
         "image" : "/F6.jpg",
-        "fake" : true
+        "fake" : true,
+        "nt":"lsn"
     },
     {
         "id":7,
         "title":"Natural calamity",
         "image" : "/F7.jpg",
-        "fake" : true
+        "fake" : true,
+        "nt":"ptn"
     },
     {
         "id":8,
         "title":"Natural calamity",
         "image" : "/F8.jpg",
-        "fake" : true
+        "fake" : true,
+        "nt":"ptn"
     },
     {
         "id":9,
         "title":"Natural calamity",
         "image" : "/F9.jpg",
-        "fake" : true
+        "fake" : true,
+        "nt":"ptn"
     },
     {
         "id":10,
         "title":"Natural calamity",
         "image" : "/F10.jpg",
-        "fake" : true
+        "fake" : true,
+        "nt":"lsn"
     },
     {
         "id":11,
         "title":"Natural calamity",
         "image" : "/F11.jpg",
-        "fake" : true
+        "fake" : true,
+        "nt":"lsn"
     },
     {
         "id":12,
         "title":"Natural calamity",
         "image" : "/R1.jpg",
-        "fake" : false
+        "fake" : false,
+        "nt":"lsn"
     },
     {
         "id":13,
         "title":"Natural calamity",
         "image" : "/R2.jpg",
-        "fake" : false
+        "fake" : false,
+        "nt":"ptn"
     },
     {
         "id":14,
         "title":"Natural calamity",
         "image" : "/R3.jpg",
-        "fake" : false
+        "fake" : false,
+        "nt":"lsn"
     },
     {
         "id":15,
@@ -93,24 +107,28 @@
         "id":16,
         "title":"Natural calamity",
         "image" : "/R5.jpg",
-        "fake" : false
+        "fake" : false,
+        "nt":"lsn"
     },
     {
         "id":17,
         "title":"Natural calamity",
         "image" : "/R6.jpg",
-        "fake" : false
+        "fake" : false,
+        "nt":"ptn"
     },
     {
         "id":18,
         "title":"Natural calamity",
         "image" : "/R7.jpg",
-        "fake" : false
+        "fake" : false,
+        "nt":"lsn"
     },
     {
         "id":19,
         "title":"Natural calamity",
         "image" : "/R8.jpg",
-        "fake" : false
+        "fake" : false,
+        "nt":"lsn"
     }
 ]

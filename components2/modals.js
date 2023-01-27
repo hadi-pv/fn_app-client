@@ -168,7 +168,7 @@ const Modals = (props) => {
                       }
                     }}
                   >
-                    {user[v].toUpperCase()}
+                    {user[v]}
                     
                   </Menu.Item>
                 ))}
@@ -358,7 +358,7 @@ const Modals = (props) => {
         handleShow1()
         setStime(new Date())
         props.setOpenedNews([...props.openedNews,props.news.id])
-      }} type='button' style={{'alignSelf':'bottom'}} className= "btn btn-secondary flex mx-2"><IconShare /><span className="d-none d-md-flex">{props.right? '':'Share to Whatsapp group:'}</span></button>
+      }} type='button' style={{'alignSelf':'bottom'}} className= "btn btn-secondary flex mx-2"><IconShare />{props.news.id}<span className="d-none d-md-flex">{props.right? '':'Share to Whatsapp group:'}</span></button>
       </div>
     </div>
   );
