@@ -113,7 +113,7 @@ const Mainpage = () => {
                             setFamily={setFamily} setFriend={setFriend} setColleague={setColleague}/>
                         }
                         <div className='flex justify-center items-center h-[10vh]'>
-                            <button type='button' className='btn btn-primary' disabled={openedNews.length<=1} onClick={async()=> {
+                            <button type='button' className='btn btn-primary' disabled={openedNews.length<=7} onClick={async()=> {
                                 const t=Math.floor((new Date().getTime()-user.starttime)/1000)
                                 const k=await axios.post('/api/sendlog',{news_id:'0',user_id:user.id,task:'40',rt:user.rt,nt:user.nt,send_to:'',close_from:'',time_in_sec:t,add_info:`Interacted with ${openedNews.length}`})
                                 window.location.href='/feedback'
