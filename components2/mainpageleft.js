@@ -2,7 +2,6 @@ import {useState} from 'react';
 import { ScrollArea,} from '@mantine/core';
 import { IconNews } from "@tabler/icons";
 
-import news from '../data/news.json'
 import Modals from './modals';
 // import img from '../data/newsimg/F1.jpg'
 // import Card from './Card';
@@ -16,7 +15,7 @@ const Mainpageleft=(props)=>{
         <>
         <ScrollArea style={{ 'height': '75vh' }} >
         <div className='flex flex-wrap gap-2 justify-content-center'>  
-            {news.map((v, index) => (
+            {props.news.map((v, index) => (
                     <div className={(props.openedNews.includes(v.id)? styles.newsCard2 : styles.newsCard)} key={v.id}>
                       <div className='bg-[#bde1b9] rounded-md ' style={{'height':'100%'}}>
                         <center className='d-none d-md-block'><img className="h-full" src={v.image} alt="img" height={180} width={180} /></center>

@@ -45,7 +45,8 @@ const Mainpage = () => {
     useEffect(()=>{
         const user1=JSON.parse(localStorage.getItem('user'))
         setUser(user1)
-        setData(shuffleArray(news))
+        setData(shuffleArray(news.filter((k)=>k.nt==user1.nt)))
+        console.log(data)
         // axios.post('/api/getmsg',{
         //     send_by:user1.id
         // })
@@ -72,6 +73,7 @@ const Mainpage = () => {
             <div className='bg-[#e3fff9]a h-[100vh]'>
                 <div className='w-full bg-[#00a884] -z-1 h-[8vh]'>
                     <img src='/iitmlogo.png' alt='IITM LOGO' className='w-[6vh] h-[6vh] absolute top-[1vh] left-[1vh]'/>
+                    <img src='/logo192.png' alt='IITM LOGO' className='bg-white rounded w-[6vh] h-[6vh] absolute top-[1vh] left-[10vh]'/>
                     <button onClick={handleShow} className=" bg-[#ffffff] w-[6vh] h-[6vh] p-2 absolute top-[1vh] right-[1vh] rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>

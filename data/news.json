@@ -101,7 +101,8 @@
         "id":15,
         "title":"Natural calamity",
         "image" : "/R4.jpg",
-        "fake" : false
+        "fake" : false,
+        "nt":"ptn"
     },
     {
         "id":16,
