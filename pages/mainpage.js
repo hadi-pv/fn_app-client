@@ -69,6 +69,7 @@ const Mainpage = () => {
 
 
     return(
+        <>
         <div>
             <div className='bg-[#e3fff9]a h-[100vh]'>
                 <div className='w-full bg-[#00a884] -z-1 h-[8vh]'>
@@ -90,7 +91,7 @@ const Mainpage = () => {
                                     setFamily={setFamily} setFriend={setFriend} setColleague={setColleague}/>
                                 }
                                 <div className='flex justify-center items-center h-[8vh]'>
-                                    <button type='button' className='btn btn-primary' disabled={openedNews.length<7} onClick={()=> {
+                                    <button type='button' className='btn btn-primary' disabled={openedNews.length<=7} onClick={()=> {
                                         const t=Math.floor((new Date().getTime()-user.starttime)/1000)
                                         axios.post('/api/sendlog',{news_id:'0',user_id:user.id,task:'40',rt:user.rt,send_to:'',close_from:'',time_in_sec:t,add_info:`Interacted with ${openedNews.length} news`})
                                         .then((req)=>console.log('log send successfully'))
@@ -114,11 +115,9 @@ const Mainpage = () => {
                             setFamily={setFamily} setFriend={setFriend} setColleague={setColleague}/>
                         }
                         <div className='flex justify-center items-center h-[10vh]'>
-                            <button type='button' className='btn btn-primary' disabled={openedNews.length<7} onClick={()=> {
+                            <button type='button' className='btn btn-primary' disabled={openedNews.length<=1} onClick={async()=> {
                                 const t=Math.floor((new Date().getTime()-user.starttime)/1000)
-                                axios.post('/api/sendlog',{news_id:openedNews.length.toString(),user_id:user.id,task:'40',rt:user.rt,send_to:'',close_from:'',time_in_sec:t,add_info:`Interacted with ${openedNews.length}`})
-                                .then((req)=>console.log('log send successfully'))
-                                .catch((err)=>console.log(err))
+                                const k=await axios.post('/api/sendlog',{news_id:'0',user_id:user.id,task:'40',rt:user.rt,send_to:'',close_from:'',time_in_sec:t,add_info:`Interacted with ${openedNews.length}`})
                                 window.location.href='/feedback'
                             }} ><strong>TO NEXT SEGMENT</strong></button>
                         </div>
@@ -142,7 +141,9 @@ const Mainpage = () => {
                     })}                      
                 </div>
             </Drawer> 
-        </div>  
+        </div>
+        </>
+        
     );
 }
 
