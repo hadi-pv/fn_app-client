@@ -1,120 +1,100 @@
 [
     {
-        "title":"Natural calamity",
         "image" : "/F_LS1.jpg",
         "fake":true,
         "nt":"lsn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/F_LS2.jpg",
         "fake":true,
         "nt":"lsn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/F_LS3.jpg",
         "fake":true,
         "nt":"lsn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/F_LS4.jpg",
         "fake":true,
         "nt":"lsn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/F_LS5.jpg",
         "fake":true,
         "nt":"lsn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/F_P1.jpg",
         "fake":true,
         "nt":"ptn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/F_P2.jpg",
         "fake":true,
         "nt":"ptn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/F_P3.jpg",
         "fake":true,
         "nt":"ptn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/F_P4.jpg",
         "fake":true,
         "nt":"ptn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/F_P5.jpg",
         "fake":true,
         "nt":"ptn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/R_LS1.jpg",
         "fake":false,
         "nt":"lsn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/R_LS2.jpg",
         "fake":false,
         "nt":"lsn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/R_LS3.jpg",
         "fake":false,
         "nt":"lsn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/R_LS4.jpg",
         "fake":false,
         "nt":"lsn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/R_LS5.jpg",
         "fake":false,
         "nt":"lsn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/R_P1.jpg",
         "fake":false,
         "nt":"ptn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/R_P2.jpg",
         "fake":false,
         "nt":"ptn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/R_P3.jpg",
         "fake":false,
         "nt":"ptn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/R_P4.jpg",
         "fake":false,
         "nt":"ptn"
     },
     {
-        "title":"Natural calamity",
         "image" : "/R_P5.jpg",
         "fake":false,
         "nt":"ptn"
