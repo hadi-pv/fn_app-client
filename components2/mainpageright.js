@@ -26,7 +26,7 @@ const Mainpageright = ({persons,news,loading,user,openedNews,setOpenedNews}) => 
                                 <button key={id} id={pers} className='w-full m-2' onClick={()=>{
 
                                     setSelectedTab(pers)
-                                    console.log(document.getElementById(pers).className)
+                                    console.log(persons[pers])
                                     document.getElementById(pers).className="border-width-3px border-bottom rounded-bottom border-white w-full m-2"
                                     for(const item of ['family','friend','colleague']){
                                         if(item!=pers){

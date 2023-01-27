@@ -101,27 +101,35 @@ const Signup = () =>{
             case '0':
                 rt='000'
                 nt='ptn'
+                break
             case '1':
                 rt='000'
                 nt='lsn'
+                break
             case '2':
                 rt='111'
                 nt='ptn'
+                break
             case '3':
                 rt='111'
                 nt='lsn'
+                break
             case '4':
                 rt='222'
                 nt='ptn'
+                break
             case '5':
                 rt='222'
                 nt='lsn'
+                break
             case '6':
                 rt='333'
                 nt='ptn'
+                break
             case '7':
                 rt='333'
                 nt='lsn'
+                break
 
         }
         

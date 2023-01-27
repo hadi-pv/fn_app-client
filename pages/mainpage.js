@@ -90,7 +90,13 @@ const Mainpage = () => {
                                     setFamily={setFamily} setFriend={setFriend} setColleague={setColleague}/>
                                 }
                                 <div className='flex justify-center items-center h-[8vh]'>
-                                    <button type='button' className='btn btn-primary' disabled={openedNews.length<3} onClick={()=> window.location.href='/feedback'} ><strong>TO NEXT SEGMENT</strong></button>
+                                    <button type='button' className='btn btn-primary' disabled={openedNews.length<7} onClick={()=> {
+                                        const t=Math.floor((new Date().getTime()-user.starttime)/1000)
+                                        axios.post('/api/sendlog',{news_id:'0',user_id:user.id,task:'40',rt:user.rt,send_to:'',close_from:'',time_in_sec:t,add_info:`Interacted with ${openedNews.length} news`})
+                                        .then((req)=>console.log('log send successfully'))
+                                        .catch((err)=>console.log(err))
+                                        window.location.href='/feedback'
+                                    }} ><strong>TO NEXT SEGMENT</strong></button>
                                 </div>
                             </div>
                         </Tab>
@@ -108,7 +114,13 @@ const Mainpage = () => {
                             setFamily={setFamily} setFriend={setFriend} setColleague={setColleague}/>
                         }
                         <div className='flex justify-center items-center h-[10vh]'>
-                            <button type='button' className='btn btn-primary' disabled={openedNews.length<3} onClick={()=> window.location.href='/feedback'} ><strong>TO NEXT SEGMENT</strong></button>
+                            <button type='button' className='btn btn-primary' disabled={openedNews.length<7} onClick={()=> {
+                                const t=Math.floor((new Date().getTime()-user.starttime)/1000)
+                                axios.post('/api/sendlog',{news_id:openedNews.length.toString(),user_id:user.id,task:'40',rt:user.rt,send_to:'',close_from:'',time_in_sec:t,add_info:`Interacted with ${openedNews.length}`})
+                                .then((req)=>console.log('log send successfully'))
+                                .catch((err)=>console.log(err))
+                                window.location.href='/feedback'
+                            }} ><strong>TO NEXT SEGMENT</strong></button>
                         </div>
                     </div>
                     <div className='layout h-[88vh] z-2 w-[50vw] p-3 justify-center items-center flex'>
