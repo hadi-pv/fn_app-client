@@ -82,37 +82,37 @@ const Modals = (props) => {
     const t=Math.floor((new Date().getTime()-stime.getTime())/1000)
     switch(taskno){
       case '00':
-        log={news_id:props.news.id,user_id:user.id,task:'00',rt:'000',send_to:sendto,close_from:'',time_in_sec:t,add_info:''}
+        log={news_id:props.news.id,user_id:user.id,task:'00',rt:'000',nt:user.nt,send_to:sendto,close_from:'',time_in_sec:t,add_info:''}
         break  
       case '01':
-        log={news_id:props.news.id,user_id:user.id,task:'01',rt:'000',send_to:'',close_from:'1',time_in_sec:t,add_info:''}
+        log={news_id:props.news.id,user_id:user.id,task:'01',rt:'000',nt:user.nt,send_to:'',close_from:'1',time_in_sec:t,add_info:''}
         break  
       case '10':
-        log={news_id:props.news.id,user_id:user.id,task:'10',rt:'111',send_to:sendto,close_from:'',time_in_sec:t,add_info:`rating is ${value}`}
+        log={news_id:props.news.id,user_id:user.id,task:'10',rt:'111',nt:user.nt,send_to:sendto,close_from:'',time_in_sec:t,add_info:`rating is ${value}`}
         break   
       case '11':
-        log={news_id:props.news.id,user_id:user.id,task:'11',rt:'111',send_to:'',close_from:'1',time_in_sec:t,add_info:''}
+        log={news_id:props.news.id,user_id:user.id,task:'11',rt:'111',nt:user.nt,send_to:'',close_from:'1',time_in_sec:t,add_info:''}
         break 
       case '13':
-        log={news_id:props.news.id,user_id:user.id,task:'13',rt:'111',send_to:sendto,close_from:'3',time_in_sec:t,add_info:`rating is ${value}`}
+        log={news_id:props.news.id,user_id:user.id,task:'13',rt:'111',nt:user.nt,send_to:sendto,close_from:'3',time_in_sec:t,add_info:`rating is ${value}`}
         break 
       case '20':
-        log={news_id:props.news.id,user_id:user.id,task:'20',rt:'222',send_to:sendto,close_from:'',time_in_sec:t,add_info:''}
+        log={news_id:props.news.id,user_id:user.id,task:'20',rt:'222',nt:user.nt,send_to:sendto,close_from:'',time_in_sec:t,add_info:''}
         break  
       case '21':
-        log={news_id:props.news.id,user_id:user.id,task:'21',rt:'222',send_to:'',close_from:'1',time_in_sec:t,add_info:''}
+        log={news_id:props.news.id,user_id:user.id,task:'21',rt:'222',nt:user.nt,send_to:'',close_from:'1',time_in_sec:t,add_info:''}
         break  
       case '22':
-        log={news_id:props.news.id,user_id:user.id,task:'22',rt:'222',send_to:sendto,close_from:'2',time_in_sec:t,add_info:''}
+        log={news_id:props.news.id,user_id:user.id,task:'22',rt:'222',nt:user.nt,send_to:sendto,close_from:'2',time_in_sec:t,add_info:''}
         break   
       case '30':
-        log={news_id:props.news.id,user_id:user.id,task:'30',rt:'333',send_to:sendto,close_from:'',time_in_sec:t,add_info:`User is sure of accuracy : ${accuracy}`}
+        log={news_id:props.news.id,user_id:user.id,task:'30',rt:'333',nt:user.nt,send_to:sendto,close_from:'',time_in_sec:t,add_info:`User is sure of accuracy : ${accuracy}`}
         break 
       case '31':
-        log={news_id:props.news.id,user_id:user.id,task:'31',rt:'333',send_to:'',close_from:'1',time_in_sec:t,add_info:''}
+        log={news_id:props.news.id,user_id:user.id,task:'31',rt:'333',nt:user.nt,send_to:'',close_from:'1',time_in_sec:t,add_info:''}
         break 
       case '33':
-        log={news_id:props.news.id,user_id:user.id,task:'33',rt:'333',send_to:sendto,close_from:'3',time_in_sec:t,add_info:`User is sure of accuracy : ${accuracy}`}
+        log={news_id:props.news.id,user_id:user.id,task:'33',rt:'333',nt:user.nt,send_to:sendto,close_from:'3',time_in_sec:t,add_info:`User is sure of accuracy : ${accuracy}`}
         break 
         
     }

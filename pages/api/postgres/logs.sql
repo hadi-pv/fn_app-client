@@ -5,6 +5,7 @@ CREATE TABLE public.logs
     user_id text NOT NULL,
     task text NOT NULL,
     rt text NOT NULL,
+    nt text NOT NULL,
     send_to text,
     close_from text,
     time_in_sec int NOT NULL,
