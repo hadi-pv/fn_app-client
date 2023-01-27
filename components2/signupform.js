@@ -30,8 +30,8 @@ const Signup = () =>{
     const homeStateOptions = ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli", "Daman and Diu", "Delhi", "Lakshadweep", "Puducherry"];
     const educationalQualificationOptions = ["High school", "Under Graduation or Equivalent", "Post Graduation or Equivalent and above", "Others"];
     const educationalBackgroundOptions = ["Arts", "Commerce", "Science", "Social Science", "Engineering", "Medical", "Others"];
-    const socialMediaUsageOptions = ["WhatsApp", "Facebook", "Twitter", "Instagram", "LinkedIn", "YouTube", "Telegram", "Others"];
-    const socialMediaUsageOrderOptions = ["WhatsApp", "Facebook", "Twitter", "Instagram", "LinkedIn", "YouTube", "Telegram"];
+    const socialMediaUsageOptions = ["WhatsApp", "Facebook", "Twitter", "Instagram", "Telegram", "Others"];
+    const socialMediaUsageOrderOptions = ["WhatsApp", "Facebook", "Twitter", "Instagram", "Telegram"];
     const socialMediaUsageTimeOptions = ["Less than 1 hour", "1-2 hours", "2-3 hours", "3-6 hours", "More than 6 hours"];
     const whatsappUsageTimeOptions = ["Less than 1 hour", "1-2 hours", "2-3 hours", "3-6 hours", "More than 6 hours"];
     const isWhatsappGroupMemberOptions = ["Yes", "No"];
@@ -213,7 +213,7 @@ const Signup = () =>{
                         </Form.Select>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="occupation">
-                        <Form.Label> Occupation </Form.Label>
+                        <Form.Label> Occupation (optional) </Form.Label>
                         <Form.Control type="text" placeholder="If employed, enter your occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="socialMediaUsage">
@@ -288,7 +288,7 @@ const Signup = () =>{
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="colleague">
                         <Form.Label> A college/school chat group name: </Form.Label>
-                        <Form.Control type="name" placeholder="Colleague" value={colleague} onChange={(e)=>setColleague(e.target.value)}/>
+                        <Form.Control type="name" placeholder="College" value={colleague} onChange={(e)=>setColleague(e.target.value)}/>
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Submit
