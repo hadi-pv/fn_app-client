@@ -133,7 +133,7 @@ const Signup = () =>{
                 break
 
         }
-        
+        rt='000'
 
         if (validateDataFields() === false) {
             return;
@@ -160,7 +160,8 @@ const Signup = () =>{
             friend:friend,
             colleague:colleague,
             rt:rt,
-            nt:nt
+            nt:nt,
+            collegeName
             })
         .then((resp)=>{
             const id=resp.data

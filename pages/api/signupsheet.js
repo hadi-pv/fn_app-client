@@ -3,7 +3,7 @@ import dbClient from './postgres/postgres'
 import { v4 as uuidv4 } from 'uuid';
 
 export default async function signuphandler(req,res){
-  const {name,email,age,gender,motherTongue,homeState,educationalQualification,educationalBackground,occupation,collegeName,socialMediaUsage,socialMediaUsageOrder,socialMediaUsageTime,isWhatsappGroupMember,whatsappUsageFrequencyForNews,prefferedLanguageOnSocialMedia,family,friend,colleague,rt,nt}=req.body;
+  const {name,email,age,gender,motherTongue,homeState,educationalQualification,educationalBackground,occupation,collegeName,socialMediaUsage,socialMediaUsageOrder,socialMediaUsageTime,isWhatsappGroupMember,whatsappUsageFrequencyForNews,prefferedLanguageOnSocialMedia,family,friend,colleague,rt,nt,}=req.body;
 
   const user_id=uuidv4();
 

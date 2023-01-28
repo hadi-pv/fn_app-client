@@ -162,8 +162,24 @@ const Modals = (props) => {
                         handleClose1();
                       }
                       else{
-                        send_message()
-                        sendlog('00')
+                        if(v=='family'){props.setFamily([...props.family,props.news.id])}
+                        if(v=='friend'){props.setFriend([...props.friend,props.news.id])}
+                        if(v=='colleague'){props.setColleague([...props.colleague,props.news.id])}
+                        const t=Math.floor((new Date().getTime()-stime.getTime())/1000)
+                        axios.post('/api/sendmsg',{fk_news_id:props.news.id,send_to:v,send_by:user.id,time_taken:t})
+                        .then((req)=>{
+                          console.log('message send succesfully')
+                        })
+                        .catch((err)=>{
+                          console.log(err)
+                        })
+                        axios.post('/api/sendlog',{news_id:props.news.id,user_id:user.id,task:'00',rt:'000',nt:user.nt,send_to:v,close_from:'',time_in_sec:t,add_info:''})
+                        .then((req)=>{
+                          console.log('log send successfully')
+                        })
+                        .catch((err)=>{
+                          console.log(err)
+                        })
                         handleClose1();
                       }
                     }}
@@ -175,18 +191,6 @@ const Modals = (props) => {
               </Menu.Dropdown>
             </div>
           </Menu>
-          <button
-            onClick={(e) => {
-              if (user.rt!='000') {
-                handleShow2();
-                handleClose1();
-              }
-              else{
-                send_message()
-                handleClose1();
-              }
-            }}
-          ></button>
             <button className="bg-green-300 border rounded-lg p-1 hover:bg-green-500" onClick={()=>{
                 if(user.rt=='000'){
                   sendlog('01')
@@ -247,14 +251,14 @@ const Modals = (props) => {
           <br/>
           <div className="flex flex-col items-center">
             <span className="flex gap-3">
-              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
+              <button type="button" className="btn btn-danger py-2 px-4 " onClick={()=>{
                   send_message()
                   sendlog('20')
                   handleClose2()
                   }}>
                 YES
               </button>
-              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={()=>{
+              <button type="button" className="btn btn-success py-2 px-4 " onClick={()=>{
                   sendlog('22')
                   handleClose2()
               }}>

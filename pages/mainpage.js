@@ -76,15 +76,13 @@ const Mainpage = () => {
                 <div className='w-full bg-[#00a884] -z-1 h-[8vh]'>
                     <img src='/iitmlogo.png' alt='IITM LOGO' className='w-[6vh] h-[6vh] absolute top-[1vh] left-[1vh]'/>
                     <img src='/logo192.png' alt='IITM LOGO' className='bg-white rounded w-[6vh] h-[6vh] absolute top-[1vh] left-[10vh]'/>
-                    <button onClick={()=>setModalOpen(true)} className=" bg-[#ffffff] w-[6vh] h-[6vh] p-2 absolute top-[1vh] right-[10vh] rounded-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-info-circle" viewBox="0 0 16 16">
-                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1zm.905 4.555a.552.552 0 1 0-1.104 0v3.89a.552.552 0 1 0 1.104 0v-3.89zm.03 5.445a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                        </svg>
-                    </button>
-                    <button onClick={handleShow} className=" bg-[#ffffff] w-[6vh] h-[6vh] p-2 absolute top-[1vh] right-[1vh] rounded-md">
+                    <button onClick={()=>setModalOpen(true)} className="flex bg-[#ffffff] w-[10vh] h-[6vh] p-2 absolute top-[1vh] right-[1vh] rounded-md justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                             <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>&emsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1zm.905 4.555a.552.552 0 1 0-1.104 0v3.89a.552.552 0 1 0 1.104 0v-3.89zm.03 5.445a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                         </svg>
                     </button>
                 </div>
@@ -131,25 +129,14 @@ const Mainpage = () => {
                     </div>
                 </div>
             </div>
-            <Drawer opened ={show} onClose = {handleClose} title = 'Build by tensors' size ="lg" position="right">
-                <div style={{'padding':'1vh'}}>
-                    <center><h3>Instructions</h3></center>
-                    <br/>
-                    <h5>Number of news articles opened : <br/>
-                    <center><button type='button' className='btn btn-primary'><strong>{openedNews.length}</strong></button></center></h5>
-                    <br/>
-                    {Object.keys(user).map((k,id)=>{
-                        return(
-                            <h5 key={id}>{k} : {user[k]}</h5>
-                        )
-                    })}                      
-                </div>
-            </Drawer>
             <Modal show={modalOpen} onHide={()=>setModalOpen(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title> Are you excited to participate? </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <h5><center><i>Number of news articles opened : <br/>
+                    <button type='button' className='btn btn-primary m-2'><strong>{openedNews.length}</strong></button></i></center></h5>
+                    <br/>
                     <h6><b> Here are a few instructions before you start... </b></h6> <br/>
 
                     There are two tabs on the experiment homepage: <br/><br/>
