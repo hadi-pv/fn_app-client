@@ -135,7 +135,6 @@ const Signup = () =>{
                 break
 
         }
-        rt='000'
 
         if (validateDataFields() === false) {
             document.getElementById('submittext').innerHTML='Submit'
