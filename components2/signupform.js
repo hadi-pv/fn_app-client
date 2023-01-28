@@ -14,6 +14,7 @@ const Signup = () =>{
     const [educationalQualification,setEducationalQualification]=useState('')
     const [educationalBackground,setEducationalBackground]=useState('')
     const [occupation,setOccupation]=useState('')
+    const [collegeName,setCollegeName]=useState('')
     const [socialMediaUsage,setSocialMediaUsage]=useState([])
     const [socialMediaUsageOrder,setSocialMediaUsageOrder]=useState({ 1: '', 2: '', 3: '' })
     const [socialMediaUsageTime,setSocialMediaUsageTime]=useState('')
@@ -29,7 +30,7 @@ const Signup = () =>{
     const genderOptions = ["Male", "Female", "Other"];
     const homeStateOptions = ["Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal", "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli", "Daman and Diu", "Delhi", "Lakshadweep", "Puducherry"];
     const educationalQualificationOptions = ["High school", "Under Graduation or Equivalent", "Post Graduation or Equivalent and above", "Others"];
-    const educationalBackgroundOptions = ["Arts", "Commerce", "Science", "Social Science", "Engineering", "Medical", "Others"];
+    const educationalBackgroundOptions = ["Arts", "Management", "Science", "Social Science", "Engineering", "Medical", "Others"];
     const socialMediaUsageOptions = ["WhatsApp", "Facebook", "Twitter", "Instagram", "Telegram", "Others"];
     const socialMediaUsageOrderOptions = ["WhatsApp", "Facebook", "Twitter", "Instagram", "Telegram"];
     const socialMediaUsageTimeOptions = ["Less than 1 hour", "1-2 hours", "2-3 hours", "3-6 hours", "More than 6 hours"];
@@ -42,7 +43,7 @@ const Signup = () =>{
         if (name === '' || email === '' || age === '' || family === '' || friend === '' || colleague === '' ||
             gender === '' || motherTongue === '' || homeState === '' || educationalQualification === '' ||
             educationalBackground === '' || socialMediaUsage.length === 0 ||
-            socialMediaUsageOrder["1"] === '' ||socialMediaUsageOrder["2"] === '' || socialMediaUsageOrder["3"] === ''
+            socialMediaUsageOrder["1"] === ''
              || socialMediaUsageTime === '' || whatsappUsageTime === '' ||
             isWhatsappGroupMember === '' || whatsappUsageFrequencyForNews === '' || prefferedLanguageOnSocialMedia === '') {
             alert('Please fill all the fields');
@@ -60,7 +61,7 @@ const Signup = () =>{
             alert('Not a valid age');
             return false;
         }
-        else if (socialMediaUsageOrder["1"] === socialMediaUsageOrder["2"] || socialMediaUsageOrder["1"] === socialMediaUsageOrder["3"] || socialMediaUsageOrder["2"] === socialMediaUsageOrder["3"]) {
+        else if (socialMediaUsageOrder["1"] === socialMediaUsageOrder["2"] || socialMediaUsageOrder["1"] === socialMediaUsageOrder["3"]) {
             alert('Please select different social media platforms for order');
             return false;
         }
@@ -148,6 +149,7 @@ const Signup = () =>{
             educationalQualification,
             educationalBackground,
             occupation,
+            collegeName,
             socialMediaUsage,
             socialMediaUsageOrder,
             socialMediaUsageTime,
@@ -224,6 +226,10 @@ const Signup = () =>{
                         <Form.Label> Occupation (optional) </Form.Label>
                         <Form.Control type="text" placeholder="If employed, enter your occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} />
                     </Form.Group>
+                    <Form.Group className="mb-3" controlId="occupation">
+                        <Form.Label> College Name (optional) </Form.Label>
+                        <Form.Control type="text" placeholder="If studying, enter your college name" value={collegeName} onChange={(e) => setCollegeName(e.target.value)} />
+                    </Form.Group>
                     <Form.Group className="mb-3" controlId="socialMediaUsage">
                         <Form.Label> Which of these Social Media platforms do you use? </Form.Label>
                         {socialMediaUsageOptions.map((socialMediaUsageOption,id) => (
@@ -238,11 +244,11 @@ const Signup = () =>{
                             {socialMediaUsageOrderOptions.map((socialMediaUsageOption) => ( <option value={socialMediaUsageOption}> {socialMediaUsageOption} </option> ))}
                         </Form.Select>
                         <Form.Select className="mb-1" onChange={(e) => setSocialMediaUsageOrder({ ...socialMediaUsageOrder, ["2"]: e.target.value})}>
-                            <option value=""> 2nd mostly used </option>
+                            <option value=""> 2nd mostly used (optional) </option>
                             {socialMediaUsageOrderOptions.map((socialMediaUsageOption) => ( <option value={socialMediaUsageOption}> {socialMediaUsageOption} </option> ))}
                         </Form.Select>
                         <Form.Select className="mb-1" onChange={(e) => setSocialMediaUsageOrder({ ...socialMediaUsageOrder, ["3"]: e.target.value})}>
-                            <option value=""> 3rd mostly used </option>
+                            <option value=""> 3rd mostly used (optional) </option>
                             {socialMediaUsageOrderOptions.map((socialMediaUsageOption) => ( <option value={socialMediaUsageOption}> {socialMediaUsageOption} </option> ))}
                         </Form.Select>
                     </Form.Group>
@@ -268,7 +274,7 @@ const Signup = () =>{
                         </Form.Select>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="whatsappUsageFrequencyForNews">
-                        <Form.Label> How often do you use WhatsApp as a source for news? </Form.Label>
+                        <Form.Label> How often do you use WhatsApp as a source for health information? </Form.Label>
                         <Form.Select onChange={(e) => setWhatsappUsageFrequencyForNews(e.target.value)}>
                             <option value=""> Select an option </option>
                             {whatsappUsageFrequencyForNewsOptions.map((whatsappUsageFrequencyForNewsOption) => ( <option value={whatsappUsageFrequencyForNewsOption}> {whatsappUsageFrequencyForNewsOption} </option> ))}

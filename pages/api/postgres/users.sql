@@ -9,6 +9,7 @@ CREATE TABLE public.users
     educationalQualification text,
     educationalBackground text,
     occupation text,
+    collegeName text,
     socialMediaUsage text[],
     socialMediaUsageOrder json,
     socialMediaUsageTime text,
