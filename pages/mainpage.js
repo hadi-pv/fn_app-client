@@ -156,9 +156,9 @@ const Mainpage = () => {
                     a) <b>Information</b> – you can see all the information to read. <br/>
                     b) <b>Your responses</b> - The information you shared will be shown here in the respective WhatsApp groups. <br/><br/>
 
-                    • Please open and read all the information presented on the screen. You should 'attempt' to share at least six of them. <br/><br/>
+                    • Please open and read all the information presented on the screen. You should <b>attempt</b> to share at least six of them. <br/><br/>
 
-                    • When you open an information, at the bottom of the screen, you have two options: "share" and "close" (in bold). The continue button will be enabled only after sharing is complete. <br/><br/>
+                    • When you open an information, at the bottom of the screen, you have two options: <b>share</b> and <b>close</b>. The continue button will be enabled only after sharing is complete. <br/><br/>
 
                     • After completing the experiment, you will be directed to the post-experiment questionnaire.  <br/><br/>
 
