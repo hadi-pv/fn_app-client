@@ -39,3 +39,10 @@
 .mainpageOuter{
     background: linear-gradient(to bottom,green,white);
 }
+
+.scrollbtn{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 9999;
+}

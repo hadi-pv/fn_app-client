@@ -2,10 +2,12 @@ import styles from '../styles/mainpage.module.css'
 import { useEffect, useState } from 'react';
 import { Drawer, Loader} from '@mantine/core';
 import { Tab, Tabs, Modal, Button } from 'react-bootstrap';
+import {IconArrowBigDownLines} from '@tabler/icons'
 import axios from 'axios';
 
 import Mainpageright from '../components2/mainpageright';
 import Mainpageleft from '../components2/mainpageleft';
+import ScrollButton from '../components2/scrollbutton';
 import news from '../data/news.json'
 
 
@@ -72,6 +74,12 @@ const Mainpage = () => {
     return(
         <>
         <div>
+            <button type='button' hidden={selectedTab==1} className={`${styles.scrollbtn} btn bg-white rounded`} onClick={() => {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth',
+                });
+            }}><IconArrowBigDownLines/></button>
             <div className='bg-[#e3fff9]a h-[100vh]'>
                 <div className='w-full bg-[#00a884] -z-1 h-[8vh]'>
                     <img src='/iitmlogo.png' alt='IITM LOGO' className='w-[6vh] h-[6vh] absolute top-[1vh] left-[1vh]'/>
@@ -88,7 +96,7 @@ const Mainpage = () => {
                 </div>
                 <div className=' h-[92vh] py-[2vh] d-md-none'>
                     <Tabs activeKey={selectedTab} onSelect={(k) => setSelectedTab(k)} justify>
-                        <Tab eventKey={0} title="News">
+                        <Tab eventKey={0} title="Information">
                             <div className={ styles.layout + ' layout h-[88vh] z-2 w-full shadow-2xl  p-3 rounded-lg'}>
                                 {!data? <Loader color="green"/> :
                                     <Mainpageleft openedNews={openedNews} setOpenedNews={setOpenedNews} news={data} family={family} friend={friend} colleague={colleague}
@@ -99,11 +107,11 @@ const Mainpage = () => {
                                         const t=Math.floor((new Date().getTime()-user.starttime)/1000)
                                         const k=await axios.post('/api/sendlog',{news_id:'0',user_id:user.id,task:'40',rt:user.rt,nt:user.nt,send_to:'',close_from:'',time_in_sec:t,add_info:`Interacted with ${openedNews.length}`})
                                         window.location.href='/feedback'
-                                    }} ><strong>TO NEXT SEGMENT</strong></button>
+                                    }} ><strong>CONTINUE</strong></button>
                                 </div>
                             </div>
                         </Tab>
-                        <Tab eventKey={1} title="Phone">
+                        <Tab eventKey={1} title="Your Response">
                             <div className='layout h-[88vh] z-2 w-full p-3 justify-center items-center flex'>
                                 <Mainpageright openedNews={openedNews} setOpenedNews={setOpenedNews} persons={{family, friend, colleague}} news={data} loading={loading} user={user}/>
                             </div>
@@ -121,14 +129,14 @@ const Mainpage = () => {
                                 const t=Math.floor((new Date().getTime()-user.starttime)/1000)
                                 const k=await axios.post('/api/sendlog',{news_id:'0',user_id:user.id,task:'40',rt:user.rt,nt:user.nt,send_to:'',close_from:'',time_in_sec:t,add_info:`Interacted with ${openedNews.length}`})
                                 window.location.href='/feedback'
-                            }} ><strong>TO NEXT SEGMENT</strong></button>
+                            }} ><strong>CONTINUE</strong></button>
                         </div>
                     </div>
                     <div className='layout h-[88vh] z-2 w-[50vw] p-3 justify-center items-center flex'>
                         <Mainpageright openedNews={openedNews} setOpenedNews={setOpenedNews} persons={{family, friend, colleague}} news={data} loading={loading} user={user}/>
                     </div>
                 </div>
-            </div>
+            </div>            
             <Modal show={modalOpen} onHide={()=>setModalOpen(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title> Are you excited to participate? </Modal.Title>
@@ -156,6 +164,7 @@ const Mainpage = () => {
                     Close
                 </Button>
                 </Modal.Footer>
+                <div style={{'color':'green'}}><center><strong><h6>Build by TENSORS</h6></strong></center></div>
             </Modal>
         </div>
         </>

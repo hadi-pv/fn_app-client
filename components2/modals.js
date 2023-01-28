@@ -362,7 +362,7 @@ const Modals = (props) => {
         setStime(new Date())
         props.setOpenedNews([...props.openedNews,props.news.id])
         handleShow1()
-      }} type='button' style={{'alignSelf':'bottom'}} className= "btn btn-secondary flex mx-2"><IconShare /><span className="d-none d-md-flex">{props.right? '':'Share to Whatsapp group:'}</span></button>
+      }} type='button' style={{'alignSelf':'bottom'}} className= "btn btn-secondary flex mx-2"><IconShare /><span className="d-md-none">{props.right? '':'Open'}</span><span className="d-none d-md-flex">{props.right? '':'Share to Whatsapp group'}</span></button>
       </div>
     </div>
   );
