@@ -1,7 +1,7 @@
 import styles from '../styles/mainpage.module.css'
 import { useEffect, useState } from 'react';
 import { Drawer, Loader} from '@mantine/core';
-import { Tab, Tabs } from 'react-bootstrap';
+import { Tab, Tabs, Modal, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 import Mainpageright from '../components2/mainpageright';
@@ -21,6 +21,7 @@ const Mainpage = () => {
 
     
     const [show, setShow] = useState(false);
+    const [modalOpen, setModalOpen] = useState(true);
     const [selectedTab, setSelectedTab] = useState(0);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -75,6 +76,11 @@ const Mainpage = () => {
                 <div className='w-full bg-[#00a884] -z-1 h-[8vh]'>
                     <img src='/iitmlogo.png' alt='IITM LOGO' className='w-[6vh] h-[6vh] absolute top-[1vh] left-[1vh]'/>
                     <img src='/logo192.png' alt='IITM LOGO' className='bg-white rounded w-[6vh] h-[6vh] absolute top-[1vh] left-[10vh]'/>
+                    <button onClick={()=>setModalOpen(true)} className=" bg-[#ffffff] w-[6vh] h-[6vh] p-2 absolute top-[1vh] right-[10vh] rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1zm.905 4.555a.552.552 0 1 0-1.104 0v3.89a.552.552 0 1 0 1.104 0v-3.89zm.03 5.445a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                        </svg>
+                    </button>
                     <button onClick={handleShow} className=" bg-[#ffffff] w-[6vh] h-[6vh] p-2 absolute top-[1vh] right-[1vh] rounded-md">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -138,7 +144,32 @@ const Mainpage = () => {
                         )
                     })}                      
                 </div>
-            </Drawer> 
+            </Drawer>
+            <Modal show={modalOpen} onHide={()=>setModalOpen(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title> Are you excited to participate? </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h6><b> Here are a few instructions before you start... </b></h6> <br/>
+
+                    There are two tabs on the experiment homepage: <br/><br/>
+                    a) <b>Information</b> – you can see all the information to read. <br/>
+                    b) <b>Your responses</b> - The information you shared will be shown here in the respective WhatsApp groups. <br/><br/>
+
+                    • Please open and read all the information presented on the screen. You should 'attempt' to share at least six of them. <br/><br/>
+
+                    • When you open an information, at the bottom of the screen, you have two options: "share" and "close" (in bold). The continue button will be enabled only after sharing is complete. <br/><br/>
+
+                    • After completing the experiment, you will be directed to the post-experiment questionnaire.  <br/><br/>
+
+                    Enjoy the experiment!
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={()=>setModalOpen(false)}>
+                    Close
+                </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
         </>
         
