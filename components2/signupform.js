@@ -94,6 +94,8 @@ const Signup = () =>{
 
     const submitHandler=async(e)=>{
         e.preventDefault();
+        document.getElementById('submittext').innerHTML='Loading....Please wait'
+        document.getElementById('submittext').disabled=true
         let news_rand = Math.floor(Math.random() * 8).toString();
         const rt=''
         const nt=''
@@ -136,6 +138,8 @@ const Signup = () =>{
         rt='000'
 
         if (validateDataFields() === false) {
+            document.getElementById('submittext').innerHTML='Submit'
+            document.getElementById('submittext').disabled=false
             return;
         }
         
@@ -167,14 +171,15 @@ const Signup = () =>{
             const id=resp.data
             const starttime=new Date().getTime()
             localStorage.setItem('user',JSON.stringify({id,name,email,age,rt,nt,starttime,family,friend,colleague}))
+            document.getElementById('submittext').innerHTML='Submit'
+            document.getElementById('submittext').disabled=false
             window.location.href = "/mainpage";  
         })
         .catch((err)=>{
             console.log(e);
             alert("Some error occured");
-            setName("");
-            setAge("");
-            setEmail("");
+            document.getElementById('submittext').innerHTML='Submit'
+            document.getElementById('submittext').disabled=false
         })
         };
 
@@ -305,7 +310,7 @@ const Signup = () =>{
                         <Form.Label> A college/school chat group name: </Form.Label>
                         <Form.Control type="name" placeholder="College" value={colleague} onChange={(e)=>setColleague(e.target.value)}/>
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button id='submittext' variant="primary" type="submit">
                         Submit
                     </Button>
                 </Form>
