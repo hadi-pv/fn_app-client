@@ -69,19 +69,19 @@ const Signup = () =>{
             alert('Please enter a valid email address');
             return false;
         }
-        else if (!name.match(/^[a-zA-Z ]+$/)) {
+        else if (!name.match(/^[\w ]+$/)) {
             alert('Please enter a valid name');
             return false;
         }
-        else if (!family.match(/^[a-zA-Z ]+$/)) {
+        else if (!family.match(/^[a-zA-Z0-9\W ]+$/)) {
             alert('Please enter a valid family member name');
             return false;
         }
-        else if (!friend.match(/^[a-zA-Z ]+$/)) {
+        else if (!friend.match(/^[a-zA-Z0-9\W ]+$/)) {
             alert('Please enter a valid friend name');
             return false;
         }
-        else if (!colleague.match(/^[a-zA-Z ]+$/)) {
+        else if (!colleague.match(/^[a-zA-Z0-9\W ]+$/)) {
             alert('Please enter a valid colleague name');
             return false;
         }
@@ -164,7 +164,8 @@ const Signup = () =>{
             colleague:colleague,
             rt:rt,
             nt:nt,
-            collegeName
+            collegeName,
+            datetime:new Date()
             })
         .then((resp)=>{
             const id=resp.data
@@ -231,7 +232,7 @@ const Signup = () =>{
                         <Form.Label> Occupation (optional) </Form.Label>
                         <Form.Control type="text" placeholder="If employed, enter your occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="occupation">
+                    <Form.Group className="mb-3" controlId="collegeName">
                         <Form.Label> College Name (optional) </Form.Label>
                         <Form.Control type="text" placeholder="If studying, enter your college name" value={collegeName} onChange={(e) => setCollegeName(e.target.value)} />
                     </Form.Group>
@@ -307,7 +308,7 @@ const Signup = () =>{
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="colleague">
                         <Form.Label> A college/school chat group name: </Form.Label>
-                        <Form.Control type="name" placeholder="College" value={colleague} onChange={(e)=>setColleague(e.target.value)}/>
+                        <Form.Control type="name" placeholder="colleague" value={colleague} onChange={(e)=>setColleague(e.target.value)}/>
                     </Form.Group>
                     <Button id='submittext' variant="primary" type="submit">
                         Submit
