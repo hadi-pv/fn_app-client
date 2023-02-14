@@ -139,15 +139,15 @@ const Mainpage = () => {
             </div>            
             <Modal show={modalOpen} onHide={()=>setModalOpen(false)}>
                 <Modal.Header closeButton>
-                    <Modal.Title> Are you excited to participate? </Modal.Title>
+                    <Modal.Title> Instructions </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h5><center><i>Number of news articles opened : <br/>
+                    {/* <h5><center><i>Number of news articles opened : <br/>
                     <button type='button' className='btn btn-primary m-2'><strong>{openedNews.length}</strong></button></i></center></h5>
-                    <br/>
+                    <br/> */}
                     <h6><b> Here are a few instructions before you start... </b></h6> <br/>
 
-                    There are two tabs on the experiment homepage: <br/><br/>
+                    There are two tabs on the study homepage: <br/><br/>
                     a) <b>Information</b> – you can see all the information to read. <br/>
                     b) <b>Your responses</b> - The information you shared will be shown here in the respective WhatsApp groups. <br/><br/>
 
@@ -157,7 +157,7 @@ const Mainpage = () => {
 
                     • After completing the experiment, you will be directed to the post-experiment questionnaire.  <br/><br/>
 
-                    Enjoy the experiment!
+                    Enjoy your time!
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={()=>setModalOpen(false)}>

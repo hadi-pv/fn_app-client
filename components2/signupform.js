@@ -287,7 +287,7 @@ const Signup = () =>{
                         </Form.Select>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="prefferedLanguageOnSocialMedia">
-                        <Form.Label> What language do you prefer to use on social media? </Form.Label>
+                        <Form.Label> Which language do you prefer to use on social media? </Form.Label>
                         <Form.Select onChange={(e) => setPrefferedLanguageOnSocialMedia(e.target.value)}>
                             <option value=""> Select an option </option>
                             {prefferedLanguageOnSocialMediaOptions.map((prefferedLanguageOnSocialMediaOption) => ( <option value={prefferedLanguageOnSocialMediaOption}> {prefferedLanguageOnSocialMediaOption} </option> ))}
@@ -307,8 +307,8 @@ const Signup = () =>{
                         <Form.Control type="name" placeholder="Friend" value={friend} onChange={(e)=>setFriend(e.target.value)}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="colleague">
-                        <Form.Label> A college/school chat group name: </Form.Label>
-                        <Form.Control type="name" placeholder="colleague" value={colleague} onChange={(e)=>setColleague(e.target.value)}/>
+                        <Form.Label> A College/School chat group name: </Form.Label>
+                        <Form.Control type="name" placeholder="College/School" value={colleague} onChange={(e)=>setColleague(e.target.value)}/>
                     </Form.Group>
                     <Button id='submittext' variant="primary" type="submit">
                         Submit

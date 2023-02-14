@@ -11,11 +11,11 @@ const LoginPassword = () =>{
     const handleShow = () => setShow(true);
 
     const validatePassword = () => {
-        if (password === process.env.NEXT_PUBLIC_PASSWORD) {
+        if (password === "1212") {
             window.location.href = '/signup';
         }
         else {
-            Alert('Please enter the correct password');
+            alert('Please enter the correct password');
         }
     }
 
@@ -27,7 +27,7 @@ const LoginPassword = () =>{
                 <b>A warm hello from the Indian Institute of Technology Madras!</b> <br/><br/>
                 We are a team of researchers from the Department of Management Studies (DoMS), Indian Institute of Technology Madras interested in understanding how to improve the quality and accuracy of information shared on social media platforms. Considering the role of social media in information dissemination, we feel it is important to understand how users experiences with regard to ‘information’ can be enhanced on social media platforms. We invite your valuable contribution to this study about health information on social media. <br/><br/>
                 <b>The study has two phases:</b> <br/>
-                <b>• In the first phase, you have a small information game (10 mins)</b> <br/>
+                <b>• In the first phase, you have a small information sharing game (10 mins)</b> <br/>
                 <b>• In the second phase,  you are given a questionnaire ( 15 mins)</b> <br/><br/>
                 The participation in this study is voluntary and poses no risk. You may choose to withdraw from the study at any point without giving a reason. Should you have any queries, you may ask the corresponding researcher. <br/><br/>
                 We appreciate your time and contribution to academia. <br/><br/>
@@ -54,7 +54,7 @@ const LoginPassword = () =>{
                 <Modal.Title> Consent of Participation </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                • I confirm that I have read and understood the above participant information sheet for the study. <br/><br/>
+                • I confirm that I have read and understood the above participant information guidelines for the study. <br/><br/>
                 • I understand that my participation in the study is voluntary and that I am free to withdraw at any time, without giving any reason, and without my legal rights being affected. <br/><br/>
                 • I agree not to restrict the use of any data or results that arise from this study, provided such use is only for academic purposes.                
                 </Modal.Body>
