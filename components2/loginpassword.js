@@ -11,7 +11,7 @@ const LoginPassword = () =>{
     const handleShow = () => setShow(true);
 
     const validatePassword = () => {
-        if (password === "1212") {
+        if (password === process.env.NEXT_PUBLIC_PASSWORD) {
             window.location.href = '/signup';
         }
         else {
